@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio de Prénom Nom — Photographie, Illustration, Vidéo et Jeux. Basé·e à Montpellier, Occitanie.">
+<meta property="og:title" content="Portfolio — Prénom Nom">
+<meta property="og:description" content="Photographie · Illustration · Vidéo · Jeux — Montpellier">
+<meta property="og:type" content="website">
+<title>Portfolio — Prénom Nom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* ════ RESET ════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ════ TOKENS ════ */
+:root{
+  --cream:#F0EBE1; --cream-dark:#E4DDD2;
+  --charcoal:#1A1814; --warm-mid:#7A7268; --warm-light:#B8AFA5;
+  --ph-bg:#E8F0F7; --ph-bg2:#D4E3EF; --ph-ink:#243F5E; --ph-acc:#C8A97A;
+  --il-bg:#F4EBE8; --il-bg2:#EAD8D2; --il-ink:#42182E; --il-acc:#D06848;
+  --vi-bg:#E5EFE8; --vi-bg2:#D2E4D8; --vi-ink:#163323; --vi-acc:#7AB87A;
+  --ga-bg:#ECEAF6; --ga-bg2:#DAD8EE; --ga-ink:#0E0E24; --ga-acc:#6848CC;
+  --bg:var(--cream); --bg2:var(--cream-dark);
+  --ink:var(--charcoal); --acc:var(--warm-mid);
+  --ease-cat:0.6s cubic-bezier(0.25,0.1,0.25,1);
+  --ease-ui:0.3s ease;
+}
+body.cat-photo{--bg:var(--ph-bg);--bg2:var(--ph-bg2);--ink:var(--ph-ink);--acc:var(--ph-acc)}
+body.cat-illus{--bg:var(--il-bg);--bg2:var(--il-bg2);--ink:var(--il-ink);--acc:var(--il-acc)}
+body.cat-video{--bg:var(--vi-bg);--bg2:var(--vi-bg2);--ink:var(--vi-ink);--acc:var(--vi-acc)}
+body.cat-game {--bg:var(--ga-bg);--bg2:var(--ga-bg2);--ink:var(--ga-ink);--acc:var(--ga-acc)}
+
+/* ════ GLOBAL ════ */
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Outfit',sans-serif;cursor:none;
+  transition:background var(--ease-cat),color var(--ease-cat);
+  min-height:100vh;overflow-x:hidden;
+}
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:999;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+
+/* ════ CURSEUR ════ */
+#cur-star{
+  position:fixed;pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);will-change:left,top;
+  transition:opacity 0.25s;
+}
+#cur-star path{fill:var(--ink);transition:fill var(--ease-cat)}
+#cur-ring{
+  position:fixed;pointer-events:none;z-index:9998;
+  width:32px;height:32px;border-radius:50%;
+  border:1.5px solid var(--acc);transform:translate(-50%,-50%);opacity:0;
+  will-change:left,top;
+  transition:border-color var(--ease-cat),
+    width .4s cubic-bezier(.25,.46,.45,.94),
+    height .4s cubic-bezier(.25,.46,.45,.94),opacity .3s;
+}
+body.mag-hover #cur-star{opacity:0}
+body.mag-hover #cur-ring{opacity:0.9}
+
+/* ════ NAV ════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.25rem 2.5rem;background:var(--bg);
+  border-bottom:.5px solid var(--ink);
+  transition:background var(--ease-cat),border-color var(--ease-cat);
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:13px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;transition:color var(--ease-cat);
+}
+.nav-logo .dot{color:var(--acc);transition:color var(--ease-cat)}
+.nav-right{display:flex;align-items:center;gap:2rem}
+.nav-cats{display:flex;border:.5px solid var(--ink);transition:border-color var(--ease-cat)}
+.nav-cat{
+  padding:.45rem 1rem;font-family:'Outfit',sans-serif;
+  font-size:11px;font-weight:500;letter-spacing:.02em;
+  background:transparent;border:none;
+  border-right:.5px solid var(--ink);
+  color:var(--ink);opacity:.45;cursor:none;white-space:nowrap;
+  transition:all var(--ease-ui);
+}
+.nav-cat:last-child{border-right:none}
+.nav-cat:hover{opacity:.8}
+.nav-cat.active{background:var(--ink);color:var(--acc);opacity:1;font-weight:600}
+.nav-contact{
+  font-size:11px;font-weight:500;letter-spacing:.06em;
+  color:var(--ink);opacity:.45;background:none;border:none;cursor:none;
+  transition:opacity var(--ease-ui);
+}
+.nav-contact:hover{opacity:1}
+
+/* ════ PAGES ════ */
+.page,.cat-page{display:none;min-height:100vh;padding-top:64px}
+.page.active,.cat-page.active{display:block}
+
+/* ════ HOME ════ */
+#home{
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  min-height:100vh;padding:120px 2.5rem 3rem;
+}
+.home-name{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(48px,7vw,88px);line-height:1;letter-spacing:-.03em;
+  text-align:center;color:var(--charcoal);margin-bottom:.3em;white-space:nowrap;
+}
+.home-name em{font-style:italic;font-weight:300;font-family:'Outfit',sans-serif}
+.home-sub{
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--warm-mid);margin-bottom:2rem;text-align:center;
+}
+.home-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);
+  gap:1px;width:100%;max-width:760px;border:.5px solid var(--charcoal);
+}
+.home-card{
+  padding:2rem 1.75rem;background:var(--cream);
+  border-right:.5px solid var(--charcoal);border-bottom:.5px solid var(--charcoal);
+  cursor:none;position:relative;overflow:hidden;transition:background .5s;
+}
+.home-card:nth-child(2n){border-right:none}
+.home-card:nth-child(3),.home-card:nth-child(4){border-bottom:none}
+.home-card::before{
+  content:'';position:absolute;inset:0;background:var(--hc-ink);
+  transform:translateY(100%);transition:transform .5s cubic-bezier(.25,.1,.25,1);
+}
+.home-card:hover::before{transform:translateY(0)}
+.hc-inner{position:relative;z-index:1}
+.hc-num{font-size:11px;font-style:italic;color:var(--warm-mid);margin-bottom:1.5rem;display:block;transition:color .4s}
+.home-card:hover .hc-num{color:var(--hc-acc);opacity:.6}
+.hc-title{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(18px,2.2vw,30px);letter-spacing:-.02em;line-height:1.1;
+  color:var(--charcoal);margin-bottom:.4rem;transition:color .4s;word-break:break-word;
+}
+.home-card:hover .hc-title{color:var(--hc-acc)}
+.hc-sub{font-size:11px;letter-spacing:.03em;color:var(--warm-mid);margin-bottom:1.5rem;transition:color .4s}
+.home-card:hover .hc-sub{color:var(--hc-acc);opacity:.65}
+.hc-palette{display:flex;gap:5px;margin-bottom:1.25rem}
+.hc-dot{width:9px;height:9px;border-radius:50%}
+.hc-arrow{font-size:18px;color:var(--hc-acc);opacity:0;transform:translateX(-8px);transition:all .4s .05s;display:block}
+.home-card:hover .hc-arrow{opacity:1;transform:translateX(0)}
+
+/* ════ CAT HERO ════ */
+.cat-hero{
+  padding:1.2rem 2.5rem 1.5rem;border-bottom:.5px solid var(--ink);
+  display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;
+  transition:border-color var(--ease-cat);
+}
+.cat-eyebrow{
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--acc);margin-bottom:.6rem;display:block;transition:color var(--ease-cat);
+}
+.cat-title{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(52px,7vw,84px);line-height:1;letter-spacing:-.02em;
+  color:var(--ink);transition:color var(--ease-cat);
+}
+.cat-title-accent{color:var(--acc);transition:color var(--ease-cat)}
+.cat-meta{text-align:right;max-width:280px}
+.cat-desc{font-size:11px;line-height:1.8;letter-spacing:.02em;color:var(--ink);opacity:.5;transition:color var(--ease-cat)}
+.cat-stats{display:flex;gap:2rem;margin-top:1.25rem;justify-content:flex-end}
+.stat-val{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:var(--acc);display:block;line-height:1;transition:color var(--ease-cat)}
+.stat-lab{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);opacity:.35;margin-top:3px;transition:color var(--ease-cat)}
+
+/* ════ FILTERS ════ */
+.filters{display:flex;overflow-x:auto;border-bottom:.5px solid var(--ink);transition:border-color var(--ease-cat)}
+.filter-btn{
+  padding:.45rem 1rem;font-family:'Outfit',sans-serif;font-size:10px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;background:transparent;border:none;
+  border-right:.5px solid var(--ink);color:var(--ink);opacity:.4;cursor:none;white-space:nowrap;
+  transition:all var(--ease-ui);
+}
+.filter-btn:last-child{border-right:none}
+.filter-btn:hover{opacity:.8}
+.filter-btn.active{background:var(--acc);color:var(--bg);opacity:1;font-weight:600}
+
+/* ════ GALLERY ════ */
+.gallery{padding:2rem 2.5rem;columns:3 280px;gap:6px}
+.gallery-item{break-inside:avoid;margin-bottom:6px;position:relative;overflow:hidden;cursor:none;background:var(--bg2);transition:background var(--ease-cat)}
+.gallery-item.hidden{display:none}
+.gallery-item-inner{width:100%;background:var(--ink);position:relative;overflow:hidden;transition:background var(--ease-cat)}
+.img-placeholder{width:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.img-ph-icon{opacity:.12;transition:opacity .4s,transform .4s}
+.gallery-item:hover .img-ph-icon{opacity:.25;transform:scale(1.08)}
+.ph-label{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);opacity:.2}
+.item-overlay{
+  position:absolute;inset:0;background:var(--ink);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:1.25rem;opacity:0;transition:opacity .4s;
+}
+.gallery-item:hover .item-overlay{opacity:1}
+.item-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:var(--acc);margin-bottom:3px;transition:color var(--ease-cat)}
+.item-sub{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);opacity:.55;transition:color var(--ease-cat)}
+.item-tag{display:inline-block;margin-top:8px;padding:3px 8px;border:.5px solid var(--acc);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);transition:color var(--ease-cat),border-color var(--ease-cat)}
+.h-xs{height:130px}.h-sm{height:180px}.h-md{height:260px}.h-lg{height:360px}.h-xl{height:440px}
+
+/* ════ VIDEO ════ */
+.video-grid{padding:2rem 2.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:6px}
+.video-card{background:var(--ink);position:relative;overflow:hidden;cursor:none;transition:background var(--ease-cat)}
+.video-thumb{height:200px;display:flex;align-items:center;justify-content:center;position:relative}
+.play-ring{
+  width:52px;height:52px;border-radius:50%;border:1.5px solid var(--acc);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .3s,background .3s,border-color var(--ease-cat);
+}
+.video-card:hover .play-ring{transform:scale(1.15);background:var(--acc)}
+.play-icon{font-size:16px;color:var(--acc);margin-left:3px;transition:color .3s}
+.video-card:hover .play-icon{color:var(--ink)}
+.video-info{padding:1rem 1.25rem 1.25rem}
+.video-eyebrow{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);opacity:.55;margin-bottom:5px;transition:color var(--ease-cat)}
+.video-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:var(--acc);margin-bottom:5px;transition:color var(--ease-cat)}
+.video-desc{font-size:10px;color:var(--acc);opacity:.45;line-height:1.7;transition:color var(--ease-cat)}
+.video-duration{position:absolute;bottom:.75rem;right:1rem;font-size:9px;color:var(--acc);opacity:.35;transition:color var(--ease-cat)}
+.video-type{position:absolute;top:.75rem;left:1rem;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--acc);opacity:.45;transition:color var(--ease-cat)}
+
+/* ════ JEUX ════ */
+.game-featured{padding:2rem 2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:6px;min-height:400px}
+.game-main{background:var(--ink);padding:3rem;position:relative;overflow:hidden;grid-row:span 2;display:flex;flex-direction:column;justify-content:flex-end;transition:background var(--ease-cat)}
+.game-bg-title{position:absolute;top:1rem;left:1.5rem;right:1.5rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(60px,8vw,100px);letter-spacing:-.02em;color:var(--acc);opacity:.06;line-height:1;transition:color var(--ease-cat)}
+.game-tag{display:inline-block;padding:4px 10px;border:.5px solid var(--acc);opacity:.65;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--acc);margin-bottom:1rem;transition:color var(--ease-cat),border-color var(--ease-cat)}
+.game-main-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:42px;color:var(--acc);letter-spacing:.04em;transition:color var(--ease-cat)}
+.game-main-sub{font-size:11px;color:var(--acc);opacity:.45;margin-top:.5rem;line-height:1.7;max-width:360px;transition:color var(--ease-cat)}
+.game-lives{display:flex;gap:8px;margin-top:1.5rem}
+.life-dot{width:9px;height:9px;background:var(--acc);border-radius:50%;transition:background var(--ease-cat)}
+.life-dot.empty{background:transparent;border:.5px solid var(--acc)}
+.game-side{background:var(--ga-bg2);padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between}
+.game-side.dark{background:var(--ga-ink)}
+.game-side-label{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);opacity:.45;transition:color var(--ease-cat)}
+.game-side-val{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:var(--acc);margin-top:5px;line-height:1.4;transition:color var(--ease-cat)}
+.game-grid-small{padding:0 2.5rem 2.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px}
+.game-small-card{background:var(--ink);padding:1.5rem;cursor:none;transition:transform .3s,background var(--ease-cat)}
+.game-small-card:hover{transform:translateY(-3px)}
+.gsc-type{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--acc);opacity:.45;margin-bottom:.6rem;transition:color var(--ease-cat)}
+.gsc-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--acc);margin-bottom:.5rem;transition:color var(--ease-cat)}
+.gsc-desc{font-size:10px;color:var(--acc);opacity:.4;line-height:1.7;transition:color var(--ease-cat)}
+.gsc-bar{height:1px;background:var(--acc);opacity:.15;margin-top:1rem;overflow:hidden}
+.gsc-bar::after{content:'';display:block;height:100%;background:var(--acc);animation:barPulse 2.4s ease-in-out infinite alternate}
+@keyframes barPulse{from{width:15%}to{width:85%}}
+
+/* ════ LIGHTBOX ════ */
+#lightbox{position:fixed;inset:0;z-index:800;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:2rem;cursor:none}
+#lightbox.open{display:flex}
+.lb-content{max-width:860px;width:100%;background:var(--bg);padding:2.5rem;position:relative;transition:background var(--ease-cat)}
+.lb-close{position:absolute;top:1rem;right:1.25rem;font-size:9px;letter-spacing:.15em;text-transform:uppercase;background:none;border:none;cursor:none;color:var(--ink);opacity:.4;transition:opacity var(--ease-ui)}
+.lb-close:hover{opacity:1}
+.lb-img{width:100%;height:360px;background:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;transition:background var(--ease-cat)}
+.lb-meta{display:flex;justify-content:space-between;align-items:flex-end}
+.lb-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;letter-spacing:-.01em;color:var(--ink);transition:color var(--ease-cat)}
+.lb-tag{display:inline-block;padding:4px 10px;border:.5px solid var(--acc);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);transition:color var(--ease-cat),border-color var(--ease-cat)}
+.lb-sub{font-size:10px;letter-spacing:.08em;color:var(--ink);opacity:.4;margin-bottom:6px;text-align:right;transition:color var(--ease-cat)}
+#lb-desc{margin-top:1.25rem;font-size:11px;line-height:1.9;color:var(--ink);opacity:.5;max-width:520px;transition:color var(--ease-cat)}
+
+/* ════ CONTACT ════ */
+.contact-wrap{display:grid;grid-template-columns:280px 1fr;border-top:.5px solid var(--ink);min-height:70vh;transition:border-color var(--ease-cat)}
+.contact-left{padding:3rem 2.5rem;border-right:.5px solid var(--ink);display:flex;flex-direction:column;gap:2.5rem;transition:border-color var(--ease-cat)}
+.ci-label{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);opacity:.3;margin-bottom:6px;transition:color var(--ease-cat)}
+.ci-val{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:var(--ink);text-decoration:none;transition:color var(--ease-cat)}
+.ci-link{font-size:11px;letter-spacing:.06em;color:var(--acc);text-decoration:none;opacity:.65;transition:opacity var(--ease-ui),color var(--ease-cat)}
+.ci-link:hover{opacity:1}
+.contact-right{padding:3rem 2.5rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-field{margin-bottom:1.25rem}
+.form-label{display:block;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);opacity:.35;margin-bottom:8px;transition:color var(--ease-cat)}
+.form-input{width:100%;padding:.65rem .9rem;background:transparent;border:.5px solid var(--ink);font-family:'Outfit',sans-serif;font-size:11px;color:var(--ink);outline:none;border-radius:0;appearance:none;-webkit-appearance:none;transition:border-color var(--ease-ui),color var(--ease-cat)}
+.form-input:focus{border-color:var(--acc)}
+.form-input::placeholder{opacity:.25}
+.form-textarea{height:140px;resize:vertical}
+select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2rem;cursor:none}
+.form-radio-group{display:flex;border:.5px solid var(--ink);width:fit-content;flex-wrap:wrap}
+.form-radio{padding:.4rem .9rem;cursor:none;border-right:.5px solid var(--ink);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.45;transition:all var(--ease-ui);display:flex;align-items:center}
+.form-radio:last-child{border-right:none}
+.form-radio input[type=radio]{display:none}
+.form-radio:has(input:checked){background:var(--ink);color:var(--acc);opacity:1}
+.form-submit-row{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;margin-top:1.5rem}
+.form-submit{padding:.75rem 2rem;background:var(--ink);border:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;color:var(--acc);cursor:none;transition:opacity var(--ease-ui),background var(--ease-cat),color var(--ease-cat)}
+.form-submit:hover{opacity:.8}
+.form-submit:disabled{opacity:.35;pointer-events:none}
+.form-legal{font-size:9px;color:var(--ink);opacity:.25;line-height:1.7;max-width:260px}
+.form-success{margin-top:1.5rem;padding:1rem 1.25rem;border:.5px solid var(--acc);font-size:11px;color:var(--acc);transition:color var(--ease-cat),border-color var(--ease-cat)}
+.form-error{margin-top:1.5rem;padding:1rem 1.25rem;border:.5px solid #C04040;font-size:11px;color:#C04040}
+
+/* ════ FOOTER ════ */
+#footer{border-top:.5px solid var(--ink);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:border-color var(--ease-cat)}
+.footer-name{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);transition:color var(--ease-cat)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-link{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.35;text-decoration:none;cursor:none;transition:opacity var(--ease-ui)}
+.footer-link:hover{opacity:1}
+.footer-copy{font-size:9px;color:var(--ink);opacity:.2;transition:color var(--ease-cat)}
+
+/* ════ REVEAL ════ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ════ RESPONSIVE ════ */
+@media(max-width:768px){
+  .nav-cats{display:none}
+  #nav{padding:1rem 1.5rem}
+  .home-grid{grid-template-columns:1fr 1fr}
+  .gallery{columns:2 160px}
+  .game-featured{grid-template-columns:1fr}
+  .cat-hero{flex-direction:column;align-items:flex-start}
+  .cat-meta{text-align:left}
+  .cat-stats{justify-content:flex-start}
+  .contact-wrap{grid-template-columns:1fr}
+  .contact-left{border-right:none;border-bottom:.5px solid var(--ink);padding:2rem 1.5rem}
+  .contact-right{padding:2rem 1.5rem}
+  .form-row{grid-template-columns:1fr}
+}
+
+/* ════ SCROLLBAR ════ */
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-thumb{background:var(--acc);border-radius:2px}
+</style>
+</head>
+<body>
+
+<svg id="cur-star" xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24" aria-hidden="true">
+  <path d="M9 0 Q9.8 9 18 12 Q9.8 15 9 24 Q8.2 15 0 12 Q8.2 9 9 0 Z"/>
+</svg>
+<div id="cur-ring" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="nav" aria-label="Navigation principale">
+  <a class="nav-logo" href="#" onclick="showHome();return false">VOS<span class="dot">.</span>NOM</a>
+  <div class="nav-right">
+    <div class="nav-cats" role="tablist">
+      <button class="nav-cat" role="tab" data-cat="photo" onclick="showCat('photo')">Photographie</button>
+      <button class="nav-cat" role="tab" data-cat="illus" onclick="showCat('illus')">Illustration</button>
+      <button class="nav-cat" role="tab" data-cat="video" onclick="showCat('video')">Vidéo</button>
+      <button class="nav-cat" role="tab" data-cat="game" onclick="showCat('game')">Jeux</button>
+    </div>
+    <button class="nav-contact" onclick="showContact()">Contact</button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="page active" aria-label="Accueil">
+  <h1 class="home-name">Prénom <em>Nom</em></h1>
+  <p class="home-sub">Photographie · Illustration · Vidéo · Jeux</p>
+  <div class="home-grid">
+    <div class="home-card reveal" style="--hc-ink:var(--ph-ink);--hc-acc:var(--ph-acc)" onclick="showCat('photo')" role="button" tabindex="0" aria-label="Photographie">
+      <div class="hc-inner">
+        <span class="hc-num">01 —</span>
+        <div class="hc-title">Photographie</div>
+        <div class="hc-sub">Documentaire · Humaniste · Street</div>
+        <div class="hc-palette"><div class="hc-dot" style="background:#243F5E"></div><div class="hc-dot" style="background:#C8A97A"></div><div class="hc-dot" style="background:#6B8FAF"></div></div>
+        <span class="hc-arrow" aria-hidden="true">→</span>
+      </div>
+    </div>
+    <div class="home-card reveal" style="--hc-ink:var(--il-ink);--hc-acc:var(--il-acc)" onclick="showCat('illus')" role="button" tabindex="0" aria-label="Illustration">
+      <div class="hc-inner">
+        <span class="hc-num">02 —</span>
+        <div class="hc-title">Illustration</div>
+        <div class="hc-sub">Peinture · Crayon · BD · Digital</div>
+        <div class="hc-palette"><div class="hc-dot" style="background:#42182E"></div><div class="hc-dot" style="background:#D06848"></div><div class="hc-dot" style="background:#8B3A2A"></div></div>
+        <span class="hc-arrow" aria-hidden="true">→</span>
+      </div>
+    </div>
+    <div class="home-card reveal" style="--hc-ink:var(--vi-ink);--hc-acc:var(--vi-acc)" onclick="showCat('video')" role="button" tabindex="0" aria-label="Vidéo">
+      <div class="hc-inner">
+        <span class="hc-num">03 —</span>
+        <div class="hc-title">Vidéo</div>
+        <div class="hc-sub">Interview · Fiction · Narratif</div>
+        <div class="hc-palette"><div class="hc-dot" style="background:#163323"></div><div class="hc-dot" style="background:#7AB87A"></div><div class="hc-dot" style="background:#2E6040"></div></div>
+        <span class="hc-arrow" aria-hidden="true">→</span>
+      </div>
+    </div>
+    <div class="home-card reveal" style="--hc-ink:var(--ga-ink);--hc-acc:var(--ga-acc)" onclick="showCat('game')" role="button" tabindex="0" aria-label="Jeux">
+      <div class="hc-inner">
+        <span class="hc-num">04 —</span>
+        <div class="hc-title">Jeux</div>
+        <div class="hc-sub">Platformer · Poétique · Indie</div>
+        <div class="hc-palette"><div class="hc-dot" style="background:#0E0E24"></div><div class="hc-dot" style="background:#6848CC"></div><div class="hc-dot" style="background:#2A2A5A"></div></div>
+        <span class="hc-arrow" aria-hidden="true">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTOGRAPHIE -->
+<section id="cat-photo" class="cat-page" aria-label="Photographie">
+  <div class="cat-hero reveal">
+    <div><span class="cat-eyebrow">01 — Photographie</span><h2 class="cat-title">Photo<span class="cat-title-accent">.</span></h2></div>
+    <div class="cat-meta">
+      <p class="cat-desc">Regard documentaire sur l'humain en mouvement. Occitanie comme territoire. La lumière naturelle comme seul outil.</p>
+      <div class="cat-stats"><div class="stat"><span class="stat-val">12+</span><span class="stat-lab">Séries</span></div><div class="stat"><span class="stat-val">3</span><span class="stat-lab">Expositions</span></div></div>
+    </div>
+  </div>
+  <div class="filters" id="photo-filters">
+    <button class="filter-btn active" data-filter="all">Tout</button>
+    <button class="filter-btn" data-filter="sport">Sport</button>
+    <button class="filter-btn" data-filter="portrait">Portrait</button>
+    <button class="filter-btn" data-filter="archi">Architecture</button>
+    <button class="filter-btn" data-filter="street">Street</button>
+    <button class="filter-btn" data-filter="evenement">Événement</button>
+    <button class="filter-btn" data-filter="nature">Nature</button>
+  </div>
+  <div class="gallery" id="photo-gallery">
+    <div class="gallery-item reveal" data-tags="sport,evenement" onclick="openLB('Skateboard — Occitanie','Compétition de skate, plateau, lumière de midi.','Sport · Événement','2024')"><div class="gallery-item-inner"><div class="img-placeholder h-xl"><svg class="img-ph-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg><span class="ph-label">SKATEBOARD · OCCITANIE</span></div><div class="item-overlay"><div class="item-title">Skateboard</div><div class="item-sub">Occitanie · 2024</div><span class="item-tag">Sport</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="sport,evenement" onclick="openLB('Après la compétition','Accolade après l\'effort, émotion sportive.','Sport · Émotion','2024')"><div class="gallery-item-inner"><div class="img-placeholder h-md"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="item-overlay"><div class="item-title">Après la course</div><div class="item-sub">Émotion · 2024</div><span class="item-tag">Sport</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="portrait,evenement" onclick="openLB('Contemplation','Étudiante en pause lors d\'une exposition.','Portrait · Expo','2025')"><div class="gallery-item-inner"><div class="img-placeholder h-lg"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div><div class="item-overlay"><div class="item-title">Contemplation</div><div class="item-sub">Exposition · 2025</div><span class="item-tag">Portrait</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="archi" onclick="openLB('Façade — Géométrie','Revêtement architectural, jeu de volumes et lumière.','Architecture','2024')"><div class="gallery-item-inner"><div class="img-placeholder h-md"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div><div class="item-overlay"><div class="item-title">Façade</div><div class="item-sub">Architecture · 2024</div><span class="item-tag">Architecture</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="street" onclick="openLB('Liberté Précarité Fraternité','Série supermarché — regard sur la vie ordinaire.','Street · Social','2024')"><div class="gallery-item-inner"><div class="img-placeholder h-xl"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="ph-label">LIBERTÉ · PRÉCARITÉ · FRATERNITÉ</span></div><div class="item-overlay"><div class="item-title">Liberté Précarité Fraternité</div><div class="item-sub">Série · 2024</div><span class="item-tag">Street</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="archi,nature" onclick="openLB('Lignes','Détail architectural en contrejour.','Architecture · Minimalisme','2025')"><div class="gallery-item-inner"><div class="img-placeholder h-sm"><svg class="img-ph-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M2 20h20M4 20V10M20 20V10M4 10 12 4l8 6"/></svg></div><div class="item-overlay"><div class="item-title">Lignes</div><div class="item-sub">Architecture · 2025</div><span class="item-tag">Architecture</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="evenement,portrait" onclick="openLB('Rencontre','Portrait lors d\'un événement culturel.','Portrait · Événement','2025')"><div class="gallery-item-inner"><div class="img-placeholder h-lg"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div><div class="item-overlay"><div class="item-title">Rencontre</div><div class="item-sub">Événement · 2025</div><span class="item-tag">Portrait</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="street" onclick="openLB('Attente','Instant suspendu dans l\'espace urbain.','Street · Quotidien','2024')"><div class="gallery-item-inner"><div class="img-placeholder h-xs"><svg class="img-ph-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="item-overlay"><div class="item-title">Attente</div><div class="item-sub">Street · 2024</div><span class="item-tag">Street</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="nature" onclick="openLB('Lumière','Étude de lumière naturelle.','Nature · Lumière','2025')"><div class="gallery-item-inner"><div class="img-placeholder h-md"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg></div><div class="item-overlay"><div class="item-title">Lumière</div><div class="item-sub">Nature · 2025</div><span class="item-tag">Nature</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="sport" onclick="openLB('Mouvement','Corps en action, flou de mouvement.','Sport · Corps','2024')"><div class="gallery-item-inner"><div class="img-placeholder h-lg"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="item-overlay"><div class="item-title">Mouvement</div><div class="item-sub">Sport · 2024</div><span class="item-tag">Sport</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="portrait" onclick="openLB('Regard','Portrait intime en lumière douce.','Portrait · Intime','2025')"><div class="gallery-item-inner"><div class="img-placeholder h-sm"><svg class="img-ph-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="12" r="2"/><path d="M12 19c-4 0-7-3-7-7s3-7 7-7 7 3 7 7"/></svg></div><div class="item-overlay"><div class="item-title">Regard</div><div class="item-sub">Portrait · 2025</div><span class="item-tag">Portrait</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="evenement,street" onclick="openLB('Flux','Foule en mouvement, fête de rue.','Événement · Rue','2024')"><div class="gallery-item-inner"><div class="img-placeholder h-md"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="item-overlay"><div class="item-title">Flux</div><div class="item-sub">Événement · 2024</div><span class="item-tag">Événement</span></div></div></div>
+  </div>
+</section>
+
+<!-- ILLUSTRATION -->
+<section id="cat-illus" class="cat-page" aria-label="Illustration">
+  <div class="cat-hero reveal">
+    <div><span class="cat-eyebrow">02 — Illustration</span><h2 class="cat-title">Illus<span class="cat-title-accent">.</span></h2></div>
+    <div class="cat-meta">
+      <p class="cat-desc">Huile, crayon blanc sur noir, BD, digital. Des mondes intérieurs entre mélancolie douce et tension graphique.</p>
+      <div class="cat-stats"><div class="stat"><span class="stat-val">04</span><span class="stat-lab">Médiums</span></div><div class="stat"><span class="stat-val">20+</span><span class="stat-lab">Œuvres</span></div></div>
+    </div>
+  </div>
+  <div class="filters" id="illus-filters">
+    <button class="filter-btn active" data-filter="all">Tout</button>
+    <button class="filter-btn" data-filter="peinture">Peinture</button>
+    <button class="filter-btn" data-filter="crayon">Crayon</button>
+    <button class="filter-btn" data-filter="bd">BD</button>
+    <button class="filter-btn" data-filter="digital">Digital</button>
+    <button class="filter-btn" data-filter="aquarelle">Aquarelle</button>
+  </div>
+  <div class="gallery" id="illus-gallery">
+    <div class="gallery-item reveal" data-tags="peinture" onclick="openLB('Enfant errant — Forêt','Renard roux dans une forêt mystérieuse. Huile sur toile.','Peinture à l\'huile · 2025','15×30 cm')"><div class="gallery-item-inner"><div class="img-placeholder h-xl"><svg class="img-ph-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M17 8C8 10 5.9 16.17 3.82 22M9 8s-1.84 1.79-2 5.22C6.85 16.62 9 22 9 22M12 8s2 2 2 5-2 5-2 5"/></svg><span class="ph-label">RENARD · FORÊT · HUILE</span></div><div class="item-overlay"><div class="item-title">Enfant errant</div><div class="item-sub">Peinture à l'huile · 2025</div><span class="item-tag">Peinture</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="crayon" onclick="openLB('Oiseau blessé','Crayon blanc sur papier noir. Tension entre vie et mort.','Crayon blanc · 2025','30×40 cm')"><div class="gallery-item-inner"><div class="img-placeholder h-lg"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="item-overlay"><div class="item-title">Oiseau blessé</div><div class="item-sub">Crayon blanc · 2025</div><span class="item-tag">Crayon</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="bd" onclick="openLB('Bibliothécaire en colère','Planche BD. Tons chauds, narration silencieuse.','BD · 2025','A4')"><div class="gallery-item-inner"><div class="img-placeholder h-xl"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div class="item-overlay"><div class="item-title">Bibliothécaire en colère</div><div class="item-sub">BD · 2025</div><span class="item-tag">BD</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="digital" onclick="openLB('SKZ Record','Illustration digitale. Bleus nuit, solitude urbaine.','Digital · 2025','Format vertical')"><div class="gallery-item-inner"><div class="img-placeholder h-xl"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="item-overlay"><div class="item-title">SKZ Record</div><div class="item-sub">Digital · 2025</div><span class="item-tag">Digital</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="aquarelle,peinture" onclick="openLB('Chat & Fleurs','Figure dans un champ. Aquarelle / gouache douce.','Aquarelle · 2025','A5')"><div class="gallery-item-inner"><div class="img-placeholder h-lg"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div><div class="item-overlay"><div class="item-title">Chat & Fleurs</div><div class="item-sub">Aquarelle · 2025</div><span class="item-tag">Aquarelle</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="bd" onclick="openLB('Strip Quotidien','Observations du quotidien en format strip.','BD · Strip','Horizontal')"><div class="gallery-item-inner"><div class="img-placeholder h-sm"><svg class="img-ph-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M7 8V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3"/></svg></div><div class="item-overlay"><div class="item-title">Strip Quotidien</div><div class="item-sub">BD · 2025</div><span class="item-tag">BD</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="crayon" onclick="openLB('Portrait au trait','Étude de visage, crayon sur papier brun.','Crayon · Étude','A4')"><div class="gallery-item-inner"><div class="img-placeholder h-md"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div><div class="item-overlay"><div class="item-title">Portrait au trait</div><div class="item-sub">Crayon · 2025</div><span class="item-tag">Crayon</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Nuit Électrique','Composition digitale nocturne, palette monochrome.','Digital · 2024','Carré')"><div class="gallery-item-inner"><div class="img-placeholder h-lg"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div><div class="item-overlay"><div class="item-title">Nuit Électrique</div><div class="item-sub">Digital · 2024</div><span class="item-tag">Digital</span></div></div></div>
+  </div>
+</section>
+
+<!-- VIDÉO -->
+<section id="cat-video" class="cat-page" aria-label="Vidéo">
+  <div class="cat-hero reveal">
+    <div><span class="cat-eyebrow">03 — Vidéo</span><h2 class="cat-title">Vidéo<span class="cat-title-accent">.</span></h2></div>
+    <div class="cat-meta">
+      <p class="cat-desc">Format court, ancré dans le réel. Interview, fiction, terrain. La caméra comme outil d'écoute.</p>
+      <div class="cat-stats"><div class="stat"><span class="stat-val">6+</span><span class="stat-lab">Films</span></div><div class="stat"><span class="stat-val">▶</span><span class="stat-lab">Court format</span></div></div>
+    </div>
+  </div>
+  <div class="filters" id="video-filters">
+    <button class="filter-btn active" data-filter="all">Tout</button>
+    <button class="filter-btn" data-filter="interview">Interview</button>
+    <button class="filter-btn" data-filter="fiction">Fiction</button>
+    <button class="filter-btn" data-filter="documentaire">Documentaire</button>
+    <button class="filter-btn" data-filter="experimental">Expérimental</button>
+  </div>
+  <div class="video-grid" id="video-gallery">
+    <div class="video-card reveal" data-tags="interview" onclick="openLB('Exposition Essentielle','Rencontre avec des artistes lors de l\'exposition. Voix directe, lumière naturelle.','Interview · 2025','8 min 34 s')"><div class="video-thumb" style="background:var(--vi-ink)"><span class="video-type">Interview</span><div class="play-ring"><div class="play-icon">▶</div></div><span class="video-duration">08:34</span></div><div class="video-info"><div class="video-eyebrow">Interview · Exposition · 2025</div><div class="video-title">Exposition Essentielle</div><div class="video-desc">Rencontre avec des artistes et leur rapport à l'essentiel. Voix, regards, espaces blancs.</div></div></div>
+    <div class="video-card reveal" data-tags="fiction" onclick="openLB('Enfant errant','Fiction poétique. Un enfant, une ville, une errance.','Fiction · 2025','5 min 12 s')"><div class="video-thumb" style="background:#0D2318"><span class="video-type">Fiction</span><div class="play-ring"><div class="play-icon">▶</div></div><span class="video-duration">05:12</span></div><div class="video-info"><div class="video-eyebrow">Fiction · Court métrage · 2025</div><div class="video-title">Enfant errant</div><div class="video-desc">Errance urbaine, solitude choisie. Plans séquences, silence volontaire.</div></div></div>
+    <div class="video-card reveal" data-tags="documentaire" onclick="openLB('Skate — Terrain','Documentaire de terrain lors de la compétition de skate Occitanie.','Documentaire · 2024','12 min')"><div class="video-thumb" style="background:var(--vi-ink)"><span class="video-type">Documentaire</span><div class="play-ring"><div class="play-icon">▶</div></div><span class="video-duration">12:00</span></div><div class="video-info"><div class="video-eyebrow">Documentaire · Sport · 2024</div><div class="video-title">Skate — Terrain</div><div class="video-desc">Dans les coulisses d'une compétition régionale. Corps, chutes, recommencer.</div></div></div>
+    <div class="video-card reveal" data-tags="experimental" onclick="openLB('Le Vide','Pièce expérimentale. Durée, espace, rien.','Expérimental · 2025','3 min')"><div class="video-thumb" style="background:#0D2318"><span class="video-type">Expérimental</span><div class="play-ring"><div class="play-icon">▶</div></div><span class="video-duration">03:00</span></div><div class="video-info"><div class="video-eyebrow">Expérimental · 2025</div><div class="video-title">Le Vide</div><div class="video-desc">Exploration du vide comme matière. Silence, durée, immobilité choisie.</div></div></div>
+    <div class="video-card reveal" data-tags="interview,documentaire" onclick="openLB('Il est temps','Portrait d\'un artiste et de son rapport au temps.','Interview · Portrait · 2025','6 min 45 s')"><div class="video-thumb" style="background:var(--vi-ink)"><span class="video-type">Portrait</span><div class="play-ring"><div class="play-icon">▶</div></div><span class="video-duration">06:45</span></div><div class="video-info"><div class="video-eyebrow">Interview · Portrait · 2025</div><div class="video-title">Il est temps</div><div class="video-desc">Portrait d'un artiste et de son rapport au temps qui passe.</div></div></div>
+    <div class="video-card reveal" data-tags="fiction,experimental" onclick="openLB('Renouveau','Fragment visuel entre fiction et essai. Printemps, transformation.','Fiction · Essai · 2025','4 min 20 s')"><div class="video-thumb" style="background:#0D2318"><span class="video-type">Essai</span><div class="play-ring"><div class="play-icon">▶</div></div><span class="video-duration">04:20</span></div><div class="video-info"><div class="video-eyebrow">Essai · Fiction · 2025</div><div class="video-title">Renouveau</div><div class="video-desc">Transformation, printemps, quelque chose qui recommence sans nom.</div></div></div>
+  </div>
+</section>
+
+<!-- JEUX -->
+<section id="cat-game" class="cat-page" aria-label="Jeux">
+  <div class="cat-hero reveal">
+    <div><span class="cat-eyebrow">04 — Game Design</span><h2 class="cat-title">Jeux<span class="cat-title-accent">.</span></h2></div>
+    <div class="cat-meta">
+      <p class="cat-desc">Jeux indé, univers poétiques et mécaniques signifiantes. Direction artistique, level design, écriture.</p>
+      <div class="cat-stats"><div class="stat"><span class="stat-val">01</span><span class="stat-lab">Jeu</span></div><div class="stat"><span class="stat-val">9♥</span><span class="stat-lab">Vies</span></div></div>
+    </div>
+  </div>
+  <div class="game-featured">
+    <div class="game-main reveal"><div class="game-bg-title">CHABOU</div><span class="game-tag">Platformer · 2D · Indie</span><div class="game-main-title">CHABOU</div><div class="game-main-sub">Un chat noir, un hibou énigmatique, une nuit qui s'étire à l'infini. Récupère tes vies dissimulées dans le bureau sous forme d'énigmes de lumière.</div><div class="game-lives"><div class="life-dot"></div><div class="life-dot"></div><div class="life-dot"></div><div class="life-dot empty"></div><div class="life-dot empty"></div><div class="life-dot empty"></div><div class="life-dot empty"></div><div class="life-dot empty"></div><div class="life-dot empty"></div></div></div>
+    <div class="game-side reveal"><div><div class="game-side-label">Genre</div><div class="game-side-val">Platformer<br>Puzzle</div></div><div><div class="game-side-label">Moteur</div><div class="game-side-val">GDevelop</div></div><div><div class="game-side-label">Équipe</div><div class="game-side-val">3 pers.</div></div></div>
+    <div class="game-side dark reveal"><div><div class="game-side-label">Mécaniques</div><div class="game-side-val" style="font-size:15px;line-height:1.6">Lumière<br>Karma<br>Énigmes</div></div><div><div class="game-side-label">Statut</div><div class="game-side-val">En cours</div></div></div>
+  </div>
+  <div class="game-grid-small">
+    <div class="game-small-card reveal"><div class="gsc-type">Personnages</div><div class="gsc-name">Chat noir & Hibou</div><div class="gsc-desc">Deux figures antagonistes : l'instinct paresseux contre l'ordre temporel. Tim Burton rencontre le roman noir.</div><div class="gsc-bar"></div></div>
+    <div class="game-small-card reveal"><div class="gsc-type">Level Design</div><div class="gsc-name">Le Bureau</div><div class="gsc-desc">Un bureau plongé dans le noir. Interrupteurs, zones de lumière à activer pour révéler les énigmes.</div><div class="gsc-bar"></div></div>
+    <div class="game-small-card reveal"><div class="gsc-type">Direction artistique</div><div class="gsc-name">Esthétique Riso</div><div class="gsc-desc">Roman noir, bureau, semi-cartoon. Inspiré de Phoenix Wright et White Night. Palette bleu nuit / encre.</div><div class="gsc-bar"></div></div>
+    <div class="game-small-card reveal"><div class="gsc-type">Rhétorique procédurale</div><div class="gsc-name">Valeur du temps</div><div class="gsc-desc">Chaque erreur traduit la tension entre ordre et instinct. Le jeu provoque une réflexion sur la perte.</div><div class="gsc-bar"></div></div>
+    <div class="game-small-card reveal"><div class="gsc-type">Assets — UI</div><div class="gsc-name">Sabliers & Interrupteurs</div><div class="gsc-desc">Barre de vie en sabliers. Dialogue par banderoles déchirées. Deux joueurs : clavier + souris.</div><div class="gsc-bar"></div></div>
+    <div class="game-small-card reveal"><div class="gsc-type">Animation</div><div class="gsc-name">Sprite Sheet — Chat</div><div class="gsc-desc">Marche, saut, coup de patte. Hibou : statique / clignement d'œil. Semi-cartoon fluide.</div><div class="gsc-bar"></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="cat-contact" class="cat-page" aria-label="Contact">
+  <div class="cat-hero reveal">
+    <div><span class="cat-eyebrow">05 — Contact</span><h2 class="cat-title">Parle<span class="cat-title-accent">-moi.</span></h2></div>
+    <div class="cat-meta"><p class="cat-desc">Collaboration, commande, question ou juste bonjour. Je réponds à tout.</p></div>
+  </div>
+  <div class="contact-wrap reveal">
+    <div class="contact-left">
+      <div><div class="ci-label">Email direct</div><a class="ci-val" href="mailto:vous@email.com">vous@email.com</a></div>
+      <div><div class="ci-label">Basé·e à</div><div class="ci-val">Montpellier, Occitanie</div></div>
+      <div><div class="ci-label">Disponibilité</div><div class="ci-val">Ouvert·e aux projets</div></div>
+      <div><div class="ci-label">Réseaux</div><div style="display:flex;flex-direction:column;gap:6px;margin-top:8px"><a class="ci-link" href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a><a class="ci-link" href="https://itch.io" target="_blank" rel="noopener noreferrer">Itch.io</a></div></div>
+    </div>
+    <div class="contact-right">
+      <!-- Remplace TON_ID_FORMSPREE par ton ID Formspree -->
+      <form id="contact-form" action="https://formspree.io/f/TON_ID_FORMSPREE" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Portfolio — Nouveau message">
+        <input type="hidden" name="_language" value="fr">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="form-row">
+          <div class="form-field"><label class="form-label" for="f-name">Nom *</label><input class="form-input" type="text" id="f-name" name="name" required autocomplete="name" placeholder="Prénom Nom"></div>
+          <div class="form-field"><label class="form-label" for="f-email">Email *</label><input class="form-input" type="email" id="f-email" name="email" required autocomplete="email" placeholder="vous@mail.com"></div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Sujet</label>
+          <div class="form-radio-group" role="radiogroup">
+            <label class="form-radio"><input type="radio" name="subject" value="Collaboration" checked><span>Collaboration</span></label>
+            <label class="form-radio"><input type="radio" name="subject" value="Commande"><span>Commande</span></label>
+            <label class="form-radio"><input type="radio" name="subject" value="Exposition"><span>Exposition</span></label>
+            <label class="form-radio"><input type="radio" name="subject" value="Autre"><span>Autre</span></label>
+          </div>
+        </div>
+        <div class="form-field"><label class="form-label" for="f-cat">Catégorie</label><select class="form-input" id="f-cat" name="category"><option value="Toutes">Toutes catégories</option><option value="Photographie">Photographie</option><option value="Illustration">Illustration</option><option value="Vidéo">Vidéo</option><option value="Jeux">Jeux</option></select></div>
+        <div class="form-field"><label class="form-label" for="f-msg">Message *</label><textarea class="form-input form-textarea" id="f-msg" name="message" required placeholder="Décris ton projet, ta demande…"></textarea></div>
+        <div class="form-field"><label class="form-label" for="f-budget">Budget indicatif (optionnel)</label><input class="form-input" type="text" id="f-budget" name="budget" placeholder="Ex : 200–500€, à définir…"></div>
+        <div class="form-submit-row">
+          <button class="form-submit" type="submit" id="submit-btn"><span id="submit-text">Envoyer →</span></button>
+          <p class="form-legal">Tes données sont utilisées uniquement pour te répondre.</p>
+        </div>
+        <div id="form-success" class="form-success" style="display:none" role="alert">Message envoyé — je reviens vers toi rapidement.</div>
+        <div id="form-error" class="form-error" style="display:none" role="alert">Erreur d'envoi. Contacte-moi directement par email.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Détail du projet" aria-hidden="true">
+  <div class="lb-content">
+    <button class="lb-close" onclick="closeLB()" aria-label="Fermer">[ Fermer × ]</button>
+    <div class="lb-img" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+    <div class="lb-meta"><h3 class="lb-title" id="lb-title"></h3><div><p class="lb-sub" id="lb-sub"></p><span class="lb-tag" id="lb-tag"></span></div></div>
+    <p id="lb-desc"></p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-name">Prénom Nom</div>
+  <div class="footer-links">
+    <a class="footer-link" href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a class="footer-link" href="https://itch.io" target="_blank" rel="noopener noreferrer">Itch.io</a>
+    <a class="footer-link" href="mailto:vous@email.com">Email</a>
+  </div>
+  <div class="footer-copy" id="footer-copy"></div>
+</footer>
+
+<script>
+'use strict';
+
+/* ════ CURSEUR ════ */
+const star = document.getElementById('cur-star');
+const ring = document.getElementById('cur-ring');
+let mx = window.innerWidth/2, my = window.innerHeight/2;
+let sx = mx, sy = my, rx = mx, ry = my;
+let magEl = null;
+
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY });
+
+const MAG = 'a,button,.gallery-item,.video-card,.home-card,.game-small-card,.game-main,.filter-btn';
+document.body.addEventListener('mouseenter', e => {
+  if (!e.target.matches(MAG)) return;
+  magEl = e.target;
+  document.body.classList.add('mag-hover');
+  const r = magEl.getBoundingClientRect();
+  ring.style.width  = Math.min(r.width  + 16, 54) + 'px';
+  ring.style.height = Math.min(r.height + 12, 54) + 'px';
+}, true);
+document.body.addEventListener('mouseleave', e => {
+  if (!e.target.matches(MAG)) return;
+  magEl = null;
+  document.body.classList.remove('mag-hover');
+  ring.style.width = ring.style.height = '32px';
+}, true);
+
+(function loop() {
+  sx += (mx - sx) * 0.5; sy += (my - sy) * 0.5;
+  star.style.left = sx + 'px'; star.style.top = sy + 'px';
+  if (magEl) {
+    const r = magEl.getBoundingClientRect();
+    rx += (r.left + r.width/2  - rx) * 0.14;
+    ry += (r.top  + r.height/2 - ry) * 0.14;
+  } else {
+    rx += (mx - rx) * 0.1; ry += (my - ry) * 0.1;
+  }
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(loop);
+})();
+
+/* ════ NAVIGATION ════ */
+const ALL = ['home','cat-photo','cat-illus','cat-video','cat-game','cat-contact'];
+const CAT_CLASS = {photo:'cat-photo',illus:'cat-illus',video:'cat-video',game:'cat-game'};
+
+function hideAll() {
+  ALL.forEach(id => { const el = document.getElementById(id); if (el) el.classList.remove('active') });
+  document.querySelectorAll('.nav-cat').forEach(b => b.classList.remove('active'));
+}
+
+function showHome() {
+  hideAll();
+  document.getElementById('home').classList.add('active');
+  Object.values(CAT_CLASS).forEach(c => document.body.classList.remove(c));
+  revealAll();
+}
+
+function showCat(cat) {
+  hideAll();
+  document.getElementById('cat-' + cat).classList.add('active');
+  document.querySelector('[data-cat="' + cat + '"]').classList.add('active');
+  Object.values(CAT_CLASS).forEach(c => document.body.classList.remove(c));
+  document.body.classList.add(CAT_CLASS[cat]);
+  const filters = document.querySelectorAll('#' + cat + '-filters .filter-btn');
+  if (filters.length) {
+    filters.forEach(b => b.classList.remove('active'));
+    filters[0].classList.add('active');
+    filterGallery(cat, 'all');
+  }
+  window.scrollTo({top:0, behavior:'smooth'});
+  revealAll();
+}
+
+function showContact() {
+  hideAll();
+  document.getElementById('cat-contact').classList.add('active');
+  Object.values(CAT_CLASS).forEach(c => document.body.classList.remove(c));
+  window.scrollTo({top:0, behavior:'smooth'});
+  revealAll();
+}
+
+// Keyboard navigation pour home-cards
+document.querySelectorAll('.home-card').forEach(card => {
+  card.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') card.click() });
+});
+
+/* ════ FILTRES ════ */
+document.querySelectorAll('.filters').forEach(fz => {
+  fz.addEventListener('click', e => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    fz.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterGallery(fz.id.replace('-filters',''), btn.dataset.filter);
+  });
+});
+
+function filterGallery(cat, filter) {
+  const g = document.getElementById(cat + '-gallery');
+  if (!g) return;
+  g.querySelectorAll('.gallery-item,.video-card').forEach(item => {
+    const tags = (item.dataset.tags||'').split(',');
+    item.classList.toggle('hidden', filter!=='all' && !tags.includes(filter));
+  });
+}
+
+/* ════ LIGHTBOX ════ */
+const lb = document.getElementById('lightbox');
+
+function openLB(title, desc, tag, extra) {
+  document.getElementById('lb-title').textContent = title;
+  document.getElementById('lb-desc').textContent  = desc;
+  document.getElementById('lb-tag').textContent   = tag;
+  document.getElementById('lb-sub').textContent   = extra || '';
+  lb.classList.add('open');
+  lb.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLB() {
+  lb.classList.remove('open');
+  lb.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+
+lb.addEventListener('click', e => { if (e.target === lb) closeLB() });
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeLB() });
+
+/* ════ FORMULAIRE ════ */
+const form = document.getElementById('contact-form');
+if (form) {
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    const txt = document.getElementById('submit-text');
+    const ok  = document.getElementById('form-success');
+    const err = document.getElementById('form-error');
+    if (btn.disabled) return;
+    btn.disabled = true;
+    txt.textContent = 'Envoi…';
+    ok.style.display = err.style.display = 'none';
+    try {
+      const res = await fetch(form.action, {
+        method:'POST', body:new FormData(form),
+        headers:{Accept:'application/json'}
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      ok.style.display = 'block';
+      form.reset();
+      txt.textContent = 'Envoyé ✓';
+    } catch {
+      err.style.display = 'block';
+      txt.textContent = 'Envoyer →';
+      btn.disabled = false;
+    }
+  });
+}
+
+/* ════ SCROLL REVEAL ════ */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target) }
+  });
+}, {threshold:0.08, rootMargin:'0px 0px -30px 0px'});
+
+function revealAll() {
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObs.observe(el));
+  }, 60);
+}
+
+/* ════ FOOTER ════ */
+document.getElementById('footer-copy').textContent = 'Montpellier · ' + new Date().getFullYear();
+
+revealAll();
+</script>
+</body>
+</html>
