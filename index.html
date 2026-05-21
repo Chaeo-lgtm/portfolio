@@ -481,7 +481,7 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
     <button class="filter-btn" data-filter="aquarelle">Aquarelle</button>
   </div>
   <div class="gallery" id="illus-gallery">
-    <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Bibliothécaire en colère','BD pour l'Exposition au coeur des rayons. Digital.','Digital · 2026','A3')"><div class="gallery-item-inner"><img src="images/biblio.jpg" alt="Bibliothécaire en colère" style="width:100%;display:block;height:440px;object-fit:cover"><div class="item-overlay"><div class="item-title">Bibliothècaire en colère.</div><div class="item-sub">Digital · 2026</div><span class="item-tag">Digital</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Bibliothécaire en colère','BD pour l'Exposition au coeur des rayons. Digital.','Digital · 2026','A3','images/biblio.jpg')"><div class="gallery-item-inner"><img src="images/biblio.jpg" alt="Bibliothécaire en colère" style="width:100%;display:block;height:440px;object-fit:cover"><div class="item-overlay"><div class="item-title">Bibliothècaire en colère.</div><div class="item-sub">Digital · 2026</div><span class="item-tag">Digital</span></div></div></div>
 
     <div class="gallery-item reveal" data-tags="crayon" onclick="openLB('Oiseau blessé','Crayon blanc sur papier noir. Tension entre vie et mort.','Crayon blanc · 2025','30×40 cm')"><div class="gallery-item-inner"><img src="images/oiseau_blesse.jpg" alt="Oiseau blessé" style="width:100%;display:block;height:360px;object-fit:cover"><div class="item-overlay"><div class="item-title">Oiseau blessé</div><div class="item-sub">Crayon blanc · 2025</div><span class="item-tag">Crayon</span></div></div></div>
 
@@ -861,11 +861,15 @@ vlb.addEventListener('click', e => { if (e.target === vlb) closeVid() });
 /* ════ LIGHTBOX ILLUSTRATIONS ════ */
 const lb = document.getElementById('lightbox');
 
-function openLB(title, desc, tag, extra) {
+function openLB(title, desc, tag, extra, imgSrc) {
   document.getElementById('lb-title').textContent = title;
   document.getElementById('lb-desc').textContent  = desc;
   document.getElementById('lb-tag').textContent   = tag;
   document.getElementById('lb-sub').textContent   = extra || '';
+  const lbImg = document.querySelector('.lb-img');
+  lbImg.innerHTML = imgSrc
+    ? '<img src="' + imgSrc + '" style="width:100%;height:100%;object-fit:contain">'
+    : '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>';
   lb.classList.add('open');
   lb.setAttribute('aria-hidden','false');
   document.body.style.overflow = 'hidden';
