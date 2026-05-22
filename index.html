@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Portfolio de Océane Castilla — Photographie, Illustration, Vidéo et Jeux.">
 <meta property="og:title" content="Portfolio — Océane Castilla">
-<meta property="og:description" content="Photographie · Illustration · Vidéo · Jeux ">
+<meta property="og:description" content="Photographie · Illustration · Vidéo · Jeux">
 <meta property="og:type" content="website">
 <title>Portfolio — Océane Castilla</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,11 +48,7 @@ body::after{
 }
 
 /* ════ CURSEUR ════ */
-#cur-star{
-  position:fixed;pointer-events:none;z-index:9999;
-  transform:translate(-50%,-50%);will-change:left,top;
-  transition:opacity 0.25s;
-}
+#cur-star{position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);will-change:left,top;transition:opacity 0.25s}
 #cur-star path{fill:var(--ink);transition:fill var(--ease-cat)}
 #cur-ring{
   position:fixed;pointer-events:none;z-index:9998;
@@ -74,30 +70,15 @@ body.mag-hover #cur-ring{opacity:0.9}
   border-bottom:.5px solid var(--ink);
   transition:background var(--ease-cat),border-color var(--ease-cat);
 }
-.nav-logo{
-  font-family:'Syne',sans-serif;font-weight:800;font-size:8px;
-  letter-spacing:.18em;text-transform:uppercase;
-  color:var(--ink);text-decoration:none;transition:color var(--ease-cat);
-}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);text-decoration:none;transition:color var(--ease-cat)}
 .nav-logo .dot{color:var(--acc);transition:color var(--ease-cat)}
 .nav-right{display:flex;align-items:center;gap:2rem}
 .nav-cats{display:flex;border:.5px solid var(--ink);transition:border-color var(--ease-cat)}
-.nav-cat{
-  padding:.45rem 1rem;font-family:'Outfit',sans-serif;
-  font-size:11px;font-weight:500;letter-spacing:.02em;
-  background:transparent;border:none;
-  border-right:.5px solid var(--ink);
-  color:var(--ink);opacity:.45;cursor:none;white-space:nowrap;
-  transition:all var(--ease-ui);
-}
+.nav-cat{padding:.45rem 1rem;font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:.02em;background:transparent;border:none;border-right:.5px solid var(--ink);color:var(--ink);opacity:.45;cursor:none;white-space:nowrap;transition:all var(--ease-ui)}
 .nav-cat:last-child{border-right:none}
 .nav-cat:hover{opacity:.8}
 .nav-cat.active{background:var(--ink);color:var(--acc);opacity:1;font-weight:600}
-.nav-contact{
-  font-size:11px;font-weight:500;letter-spacing:.06em;
-  color:var(--ink);opacity:.45;background:none;border:none;cursor:none;
-  transition:opacity var(--ease-ui);
-}
+.nav-contact{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--ink);opacity:.45;background:none;border:none;cursor:none;transition:opacity var(--ease-ui)}
 .nav-contact:hover{opacity:1}
 
 /* ════ PAGES ════ */
@@ -106,44 +87,20 @@ body.mag-hover #cur-ring{opacity:0.9}
 #home.active{display:flex}
 
 /* ════ HOME ════ */
-#home{
-  flex-direction:column;align-items:center;justify-content:flex-start;
-  min-height:100vh;padding:74px 2.5rem 2rem;
-}
-.home-name{
-  font-family:'Space Grotesk',sans-serif;font-weight:700;
-  font-size:clamp(48px,7vw,88px);line-height:1;letter-spacing:-.03em;
-  text-align:center;color:var(--charcoal);margin-bottom:.3em;white-space:nowrap;
-}
+#home{flex-direction:column;align-items:center;justify-content:flex-start;min-height:100vh;padding:74px 2.5rem 2rem}
+.home-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,7vw,88px);line-height:1;letter-spacing:-.03em;text-align:center;color:var(--charcoal);margin-bottom:.3em;white-space:nowrap}
 .home-name em{font-style:italic;font-weight:300;font-family:'Outfit',sans-serif}
-.home-sub{
-  font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--warm-mid);margin-bottom:1.25rem;text-align:center;
-}
-.home-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);
-  gap:1px;width:100%;max-width:760px;border:.5px solid var(--charcoal);
-}
-.home-card{
-  padding:2rem 1.75rem;background:var(--cream);
-  border-right:.5px solid var(--charcoal);border-bottom:.5px solid var(--charcoal);
-  cursor:none;position:relative;overflow:hidden;transition:background .5s;
-}
+.home-sub{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--warm-mid);margin-bottom:1.25rem;text-align:center}
+.home-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:1px;width:100%;max-width:760px;border:.5px solid var(--charcoal)}
+.home-card{padding:2rem 1.75rem;background:var(--cream);border-right:.5px solid var(--charcoal);border-bottom:.5px solid var(--charcoal);cursor:none;position:relative;overflow:hidden;transition:background .5s}
 .home-card:nth-child(2n){border-right:none}
 .home-card:nth-child(3),.home-card:nth-child(4){border-bottom:none}
-.home-card::before{
-  content:'';position:absolute;inset:0;background:var(--hc-ink);
-  transform:translateY(100%);transition:transform .5s cubic-bezier(.25,.1,.25,1);
-}
+.home-card::before{content:'';position:absolute;inset:0;background:var(--hc-ink);transform:translateY(100%);transition:transform .5s cubic-bezier(.25,.1,.25,1)}
 .home-card:hover::before{transform:translateY(0)}
 .hc-inner{position:relative;z-index:1}
 .hc-num{font-size:11px;font-style:italic;color:var(--warm-mid);margin-bottom:1.5rem;display:block;transition:color .4s}
 .home-card:hover .hc-num{color:var(--hc-acc);opacity:.6}
-.hc-title{
-  font-family:'Space Grotesk',sans-serif;font-weight:700;
-  font-size:clamp(18px,2.2vw,30px);letter-spacing:-.02em;line-height:1.1;
-  color:var(--charcoal);margin-bottom:.4rem;transition:color .4s;word-break:break-word;
-}
+.hc-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(18px,2.2vw,30px);letter-spacing:-.02em;line-height:1.1;color:var(--charcoal);margin-bottom:.4rem;transition:color .4s;word-break:break-word}
 .home-card:hover .hc-title{color:var(--hc-acc)}
 .hc-sub{font-size:11px;letter-spacing:.03em;color:var(--warm-mid);margin-bottom:1.5rem;transition:color .4s}
 .home-card:hover .hc-sub{color:var(--hc-acc);opacity:.65}
@@ -153,20 +110,9 @@ body.mag-hover #cur-ring{opacity:0.9}
 .home-card:hover .hc-arrow{opacity:1;transform:translateX(0)}
 
 /* ════ CAT HERO ════ */
-.cat-hero{
-  padding:1.2rem 2.5rem 1.5rem;border-bottom:.5px solid var(--ink);
-  display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;
-  transition:border-color var(--ease-cat);
-}
-.cat-eyebrow{
-  font-size:9px;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--acc);margin-bottom:.6rem;display:block;transition:color var(--ease-cat);
-}
-.cat-title{
-  font-family:'Space Grotesk',sans-serif;font-weight:700;
-  font-size:clamp(52px,7vw,84px);line-height:1;letter-spacing:-.02em;
-  color:var(--ink);transition:color var(--ease-cat);
-}
+.cat-hero{padding:1.2rem 2.5rem 1.5rem;border-bottom:.5px solid var(--ink);display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;transition:border-color var(--ease-cat)}
+.cat-eyebrow{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin-bottom:.6rem;display:block;transition:color var(--ease-cat)}
+.cat-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(52px,7vw,84px);line-height:1;letter-spacing:-.02em;color:var(--ink);transition:color var(--ease-cat)}
 .cat-title-accent{color:var(--acc);transition:color var(--ease-cat)}
 .cat-meta{text-align:right;max-width:280px}
 .cat-desc{font-size:11px;line-height:1.8;letter-spacing:.02em;color:var(--ink);opacity:.5;transition:color var(--ease-cat)}
@@ -176,17 +122,12 @@ body.mag-hover #cur-ring{opacity:0.9}
 
 /* ════ FILTERS ════ */
 .filters{display:flex;overflow-x:auto;border-bottom:.5px solid var(--ink);transition:border-color var(--ease-cat)}
-.filter-btn{
-  padding:.45rem 1rem;font-family:'Outfit',sans-serif;font-size:10px;font-weight:500;
-  letter-spacing:.1em;text-transform:uppercase;background:transparent;border:none;
-  border-right:.5px solid var(--ink);color:var(--ink);opacity:.4;cursor:none;white-space:nowrap;
-  transition:all var(--ease-ui);
-}
+.filter-btn{padding:.45rem 1rem;font-family:'Outfit',sans-serif;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;background:transparent;border:none;border-right:.5px solid var(--ink);color:var(--ink);opacity:.4;cursor:none;white-space:nowrap;transition:all var(--ease-ui)}
 .filter-btn:last-child{border-right:none}
 .filter-btn:hover{opacity:.8}
 .filter-btn.active{background:var(--acc);color:var(--bg);opacity:1;font-weight:600}
 
-/* ════ GALLERY ════ */
+/* ════ GALLERY MASONRY ════ */
 .gallery{
   padding:2rem 2.5rem;
   display:grid;
@@ -195,21 +136,14 @@ body.mag-hover #cur-ring{opacity:0.9}
   grid-auto-flow:row dense;
   gap:8px;
 }
-@media(max-width:768px){
-  .gallery{grid-template-columns:repeat(2,1fr)}
-}
-.gallery-item{break-inside:avoid;margin-bottom:6px;position:relative;overflow:hidden;cursor:none;background:var(--bg2);transition:background var(--ease-cat)}
+.gallery-item{position:relative;overflow:hidden;cursor:none;background:var(--bg2);transition:background var(--ease-cat)}
 .gallery-item.hidden{display:none}
 .gallery-item-inner{width:100%;background:var(--ink);position:relative;overflow:hidden;transition:background var(--ease-cat)}
 .img-placeholder{width:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
 .img-ph-icon{opacity:.12;transition:opacity .4s,transform .4s}
 .gallery-item:hover .img-ph-icon{opacity:.25;transform:scale(1.08)}
 .ph-label{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);opacity:.2}
-.item-overlay{
-  position:absolute;inset:0;background:var(--ink);
-  display:flex;flex-direction:column;justify-content:flex-end;
-  padding:1.25rem;opacity:0;transition:opacity .4s;
-}
+.item-overlay{position:absolute;inset:0;background:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem;opacity:0;transition:opacity .4s}
 .gallery-item:hover .item-overlay{opacity:1}
 .item-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:var(--acc);margin-bottom:3px;transition:color var(--ease-cat)}
 .item-sub{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);opacity:.55;transition:color var(--ease-cat)}
@@ -220,20 +154,15 @@ body.mag-hover #cur-ring{opacity:0.9}
 .video-grid{padding:2rem 2.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:6px}
 .video-card{background:var(--ink);position:relative;overflow:hidden;cursor:none;transition:background var(--ease-cat)}
 .video-thumb{height:200px;display:flex;align-items:center;justify-content:center;position:relative}
-.play-ring{
-  width:52px;height:52px;border-radius:50%;border:1.5px solid var(--acc);
-  display:flex;align-items:center;justify-content:center;
-  transition:transform .3s,background .3s,border-color var(--ease-cat);
-}
+.play-ring{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--acc);display:flex;align-items:center;justify-content:center;transition:transform .3s,background .3s,border-color var(--ease-cat)}
 .video-card:hover .play-ring{transform:scale(1.15);background:var(--acc)}
 .play-icon{font-size:16px;color:var(--acc);margin-left:3px;transition:color .3s}
 .video-card:hover .play-icon{color:var(--ink)}
-.video-info{padding:1rem 1.25rem 1.25rem}
+.video-info{padding:1rem 1.25rem 1.25rem;position:relative;z-index:2}
 .video-eyebrow{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);opacity:.55;margin-bottom:5px;transition:color var(--ease-cat)}
 .video-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:var(--acc);margin-bottom:5px;transition:color var(--ease-cat)}
 .video-desc{font-size:10px;color:var(--acc);opacity:.45;line-height:1.7;transition:color var(--ease-cat)}
-.video-duration{position:absolute;bottom:.75rem;right:1rem;font-size:9px;color:var(--acc);opacity:.35;transition:color var(--ease-cat)}
-.video-type{position:absolute;top:.75rem;left:1rem;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--acc);opacity:.45;transition:color var(--ease-cat)}
+.video-type{position:absolute;top:.75rem;left:1rem;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--acc);opacity:.45;transition:color var(--ease-cat);z-index:2}
 
 /* ════ JEUX ════ */
 .game-featured{padding:2rem 2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:6px;min-height:400px}
@@ -262,13 +191,14 @@ body.mag-hover #cur-ring{opacity:0.9}
 /* ════ LIGHTBOX ════ */
 #lightbox{position:fixed;inset:0;z-index:800;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:2rem;cursor:none}
 #lightbox.open{display:flex}
-.lb-content{max-width:860px;width:100%;background:var(--bg);padding:2.5rem;position:relative;transition:background var(--ease-cat)}
-.lb-close{position:absolute;top:1rem;right:1.25rem;font-size:9px;letter-spacing:.15em;text-transform:uppercase;background:none;border:none;cursor:none;color:var(--ink);opacity:.4;transition:opacity var(--ease-ui)}
+.lb-content{max-width:860px;width:100%;background:var(--bg);padding:2.5rem;position:relative;transition:background var(--ease-cat);max-height:90vh;overflow-y:auto}
+.lb-close{position:absolute;top:1rem;right:1.25rem;font-size:9px;letter-spacing:.15em;text-transform:uppercase;background:none;border:none;cursor:none;color:var(--ink);opacity:.4;transition:opacity var(--ease-ui);z-index:2}
 .lb-close:hover{opacity:1}
-.lb-img{width:100%;height:360px;background:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;transition:background var(--ease-cat)}
-.lb-meta{display:flex;justify-content:space-between;align-items:flex-end}
+.lb-img{width:100%;min-height:360px;max-height:60vh;background:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;transition:background var(--ease-cat);overflow:hidden}
+.lb-img img{max-width:100%;max-height:60vh;width:auto;height:auto;object-fit:contain}
+.lb-meta{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem}
 .lb-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;letter-spacing:-.01em;color:var(--ink);transition:color var(--ease-cat)}
-.lb-tag{display:inline-block;padding:4px 10px;border:.5px solid var(--acc);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);transition:color var(--ease-cat),border-color var(--ease-cat)}
+.lb-tag{display:inline-block;padding:4px 10px;border:.5px solid var(--acc);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);transition:color var(--ease-cat),border-color var(--ease-cat);white-space:nowrap}
 .lb-sub{font-size:10px;letter-spacing:.08em;color:var(--ink);opacity:.4;margin-bottom:6px;text-align:right;transition:color var(--ease-cat)}
 #lb-desc{margin-top:1.25rem;font-size:11px;line-height:1.9;color:var(--ink);opacity:.5;max-width:520px;transition:color var(--ease-cat)}
 
@@ -276,7 +206,7 @@ body.mag-hover #cur-ring{opacity:0.9}
 .contact-wrap{display:grid;grid-template-columns:280px 1fr;border-top:.5px solid var(--ink);min-height:70vh;transition:border-color var(--ease-cat)}
 .contact-left{padding:3rem 2.5rem;border-right:.5px solid var(--ink);display:flex;flex-direction:column;gap:2.5rem;transition:border-color var(--ease-cat)}
 .ci-label{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);opacity:.3;margin-bottom:6px;transition:color var(--ease-cat)}
-.ci-val{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:var(--ink);text-decoration:none;transition:color var(--ease-cat)}
+.ci-val{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:var(--ink);text-decoration:none;transition:color var(--ease-cat);word-break:break-word}
 .ci-link{font-size:11px;letter-spacing:.06em;color:var(--acc);text-decoration:none;opacity:.65;transition:opacity var(--ease-ui),color var(--ease-cat)}
 .ci-link:hover{opacity:1}
 .contact-right{padding:3rem 2.5rem}
@@ -302,7 +232,7 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
 .form-error{margin-top:1.5rem;padding:1rem 1.25rem;border:.5px solid #C04040;font-size:11px;color:#C04040}
 
 /* ════ FOOTER ════ */
-#footer{border-top:.5px solid var(--ink);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:border-color var(--ease-cat)}
+#footer{border-top:.5px solid var(--ink);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;transition:border-color var(--ease-cat)}
 .footer-name{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);transition:color var(--ease-cat)}
 .footer-links{display:flex;gap:1.5rem}
 .footer-link{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.35;text-decoration:none;cursor:none;transition:opacity var(--ease-ui)}
@@ -313,12 +243,26 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:none}
 
+/* ════ TRANSITION DE PAGE ════ */
+#page-transition{position:fixed;inset:0;z-index:2000;background:var(--charcoal);transform:scaleY(0);transform-origin:bottom;pointer-events:none;transition:transform 0.35s cubic-bezier(0.76,0,0.24,1)}
+#page-transition.in{transform:scaleY(1);transform-origin:bottom;pointer-events:all}
+#page-transition.out{transform:scaleY(0);transform-origin:top}
+.cat-page{opacity:0;transition:opacity 0.3s ease 0.1s}
+.cat-page.active{opacity:1}
+
+/* ════ BACK BUTTON ════ */
+.cat-back{display:flex;align-items:center;gap:0.75rem;padding:0.6rem 2.5rem;border-bottom:0.5px solid var(--ink);background:var(--bg);transition:border-color var(--ease-cat),background var(--ease-cat)}
+.cat-back-btn{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--ink);opacity:0.4;background:none;border:none;cursor:none;display:flex;align-items:center;gap:0.4rem;transition:opacity var(--ease-ui)}
+.cat-back-btn:hover{opacity:1}
+.cat-back-sep{font-size:10px;color:var(--ink);opacity:0.2}
+.cat-back-current{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--acc);font-weight:600;transition:color var(--ease-cat)}
+
 /* ════ RESPONSIVE ════ */
 @media(max-width:768px){
   .nav-cats{display:none}
   #nav{padding:1rem 1.5rem}
   .home-grid{grid-template-columns:1fr 1fr}
-  .gallery{columns:2 160px}
+  .gallery{grid-template-columns:repeat(2,1fr)}
   .game-featured{grid-template-columns:1fr}
   .cat-hero{flex-direction:column;align-items:flex-start}
   .cat-meta{text-align:left}
@@ -327,42 +271,6 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
   .contact-left{border-right:none;border-bottom:.5px solid var(--ink);padding:2rem 1.5rem}
   .contact-right{padding:2rem 1.5rem}
   .form-row{grid-template-columns:1fr}
-}
-
-/* ════ TRANSITION DE PAGE ════ */
-#page-transition{
-  position:fixed;inset:0;z-index:2000;
-  background:var(--charcoal);
-  transform:scaleY(0);transform-origin:bottom;
-  pointer-events:none;
-  transition:transform 0.35s cubic-bezier(0.76,0,0.24,1);
-}
-#page-transition.in {transform:scaleY(1);transform-origin:bottom;pointer-events:all}
-#page-transition.out{transform:scaleY(0);transform-origin:top}
-
-/* Fade entrée catégorie */
-.cat-page{opacity:0;transition:opacity 0.3s ease 0.1s}
-.cat-page.active{opacity:1}
-
-/* ════ BACK BUTTON ════ */
-.cat-back{
-  display:flex;align-items:center;gap:0.75rem;
-  padding:0.6rem 2.5rem;
-  border-bottom:0.5px solid var(--ink);
-  background:var(--bg);
-  transition:border-color var(--ease-cat),background var(--ease-cat);
-}
-.cat-back-btn{
-  font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;
-  color:var(--ink);opacity:0.4;background:none;border:none;cursor:none;
-  display:flex;align-items:center;gap:0.4rem;
-  transition:opacity var(--ease-ui);
-}
-.cat-back-btn:hover{opacity:1}
-.cat-back-sep{font-size:10px;color:var(--ink);opacity:0.2}
-.cat-back-current{
-  font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--acc);font-weight:600;transition:color var(--ease-cat);
 }
 
 /* ════ SCROLLBAR ════ */
@@ -465,10 +373,10 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
     <div class="gallery-item reveal" data-tags="archi,nature" onclick="openLB('Lignes','Détail architectural en contrejour.','Architecture · Minimalisme','2025')"><div class="gallery-item-inner"><div class="img-placeholder h-sm"><svg class="img-ph-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M2 20h20M4 20V10M20 20V10M4 10 12 4l8 6"/></svg></div><div class="item-overlay"><div class="item-title">Lignes</div><div class="item-sub">Architecture · 2025</div><span class="item-tag">Architecture</span></div></div></div>
     <div class="gallery-item reveal" data-tags="evenement,portrait" onclick="openLB('Rencontre','Portrait lors d\'un événement culturel.','Portrait · Événement','2025')"><div class="gallery-item-inner"><div class="img-placeholder h-lg"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div><div class="item-overlay"><div class="item-title">Rencontre</div><div class="item-sub">Événement · 2025</div><span class="item-tag">Portrait</span></div></div></div>
     <div class="gallery-item reveal" data-tags="street" onclick="openLB('Attente','Instant suspendu dans l\'espace urbain.','Street · Quotidien','2024')"><div class="gallery-item-inner"><div class="img-placeholder h-xs"><svg class="img-ph-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="item-overlay"><div class="item-title">Attente</div><div class="item-sub">Street · 2024</div><span class="item-tag">Street</span></div></div></div>
-    <div class="gallery-item reveal" data-tags="nature" onclick="openLB('Lumière','Étude de lumière naturelle.','Nature · Lumière','2025')"><div class="gallery-item-inner"><div class="img-placeholder h-md"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg></div><div class="item-overlay"><div class="item-title">Lumière</div><div class="item-sub">Nature · 2025</div><span class="item-tag">Nature</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="nature" onclick="openLB('Lumière','Étude de lumière naturelle.','Nature · Lumière','2025')"><div class="gallery-item-inner"><div class="img-placeholder h-md"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="12" r="5"/></svg></div><div class="item-overlay"><div class="item-title">Lumière</div><div class="item-sub">Nature · 2025</div><span class="item-tag">Nature</span></div></div></div>
     <div class="gallery-item reveal" data-tags="sport" onclick="openLB('Mouvement','Corps en action, flou de mouvement.','Sport · Corps','2024')"><div class="gallery-item-inner"><div class="img-placeholder h-lg"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="item-overlay"><div class="item-title">Mouvement</div><div class="item-sub">Sport · 2024</div><span class="item-tag">Sport</span></div></div></div>
     <div class="gallery-item reveal" data-tags="portrait" onclick="openLB('Regard','Portrait intime en lumière douce.','Portrait · Intime','2025')"><div class="gallery-item-inner"><div class="img-placeholder h-sm"><svg class="img-ph-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><circle cx="12" cy="12" r="2"/><path d="M12 19c-4 0-7-3-7-7s3-7 7-7 7 3 7 7"/></svg></div><div class="item-overlay"><div class="item-title">Regard</div><div class="item-sub">Portrait · 2025</div><span class="item-tag">Portrait</span></div></div></div>
-    <div class="gallery-item reveal" data-tags="evenement,street" onclick="openLB('Flux','Foule en mouvement, fête de rue.','Événement · Rue','2024')"><div class="gallery-item-inner"><div class="img-placeholder h-md"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="item-overlay"><div class="item-title">Flux</div><div class="item-sub">Événement · 2024</div><span class="item-tag">Événement</span></div></div></div>
+    <div class="gallery-item reveal" data-tags="evenement,street" onclick="openLB('Flux','Foule en mouvement, fête de rue.','Événement · Rue','2024')"><div class="gallery-item-inner"><div class="img-placeholder h-md"><svg class="img-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="item-overlay"><div class="item-title">Flux</div><div class="item-sub">Événement · 2024</div><span class="item-tag">Événement</span></div></div></div>
   </div>
 </section>
 
@@ -478,8 +386,8 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
   <div class="cat-hero reveal">
     <div><span class="cat-eyebrow">02 — Illustration</span><h2 class="cat-title">Illus<span class="cat-title-accent">.</span></h2></div>
     <div class="cat-meta">
-      <p class="cat-desc">Huile, crayon blanc sur noir, BD, digital.</p>
-      <div class="cat-stats"><div class="stat"><span class="stat-val">04</span><span class="stat-lab">Médiums</span></div><div class="stat"><span class="stat-val">20+</span><span class="stat-lab">Œuvres</span></div></div>
+      <p class="cat-desc">Acrylique, crayon blanc sur noir, BD, digital.</p>
+      <div class="cat-stats"><div class="stat"><span class="stat-val">04</span><span class="stat-lab">Médiums</span></div><div class="stat"><span class="stat-val">13</span><span class="stat-lab">Œuvres</span></div></div>
     </div>
   </div>
   <div class="filters" id="illus-filters">
@@ -488,76 +396,75 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
     <button class="filter-btn" data-filter="crayon">Crayon</button>
     <button class="filter-btn" data-filter="bd">BD</button>
     <button class="filter-btn" data-filter="digital">Digital</button>
-    <button class="filter-btn" data-filter="aquarelle">Aquarelle</button>
   </div>
   <div class="gallery" id="illus-gallery">
 
-  <div class="gallery-item reveal" data-tags="bd" onclick="openLB('Bibliothécaire en colère','Planche BD. Une bibliothécaire face au bruit des usagers. Tons chauds, narration silencieuse.','BD · 2025','','images/biblio.jpg')">
-    <div class="gallery-item-inner"><img src="images/biblio.jpg" style="width:100%;height:auto;display:block">
-    <div class="item-overlay"><div class="item-title">Bibliothécaire en colère</div><div class="item-sub">BD · 2025</div><span class="item-tag">BD</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="bd" onclick="openLB('Bibliothécaire en colère','Planche BD. Une bibliothécaire face au bruit des usagers. Tons chauds, narration silencieuse.','BD · 2025','','images/biblio.jpg')">
+      <div class="gallery-item-inner"><img src="images/biblio.jpg" alt="Bibliothécaire en colère" style="width:100%;height:auto;display:block">
+      <div class="item-overlay"><div class="item-title">Bibliothécaire en colère</div><div class="item-sub">BD · 2025</div><span class="item-tag">BD</span></div></div>
+    </div>
 
-  <div class="gallery-item reveal" data-tags="bd" onclick="openLB('Lieu de passage','Série de planches illustrant les espaces et le mobilier de la bibliothèque.','BD · 2025','','images/passage.jpg')">
-    <div class="gallery-item-inner"><img src="images/passage.jpg" style="width:100%;height:auto;display:block">
-    <div class="item-overlay"><div class="item-title">Lieu de passage</div><div class="item-sub">BD · 2025</div><span class="item-tag">BD</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="bd" onclick="openLB('Lieu de passage','Série de planches illustrant les espaces et le mobilier de la bibliothèque.','BD · 2025','','images/passage.jpg')">
+      <div class="gallery-item-inner"><img src="images/passage.jpg" alt="Lieu de passage" style="width:100%;height:auto;display:block">
+      <div class="item-overlay"><div class="item-title">Lieu de passage</div><div class="item-sub">BD · 2025</div><span class="item-tag">BD</span></div></div>
+    </div>
 
-  <div class="gallery-item reveal" data-tags="bd" onclick="openLB('Médiation Numérique','Planche BD sur la médiation numérique en bibliothèque. Tons bleus et violets.','BD · 2025','','images/mediation.jpg')">
-    <div class="gallery-item-inner"><img src="images/mediation.jpg" style="width:100%;height:auto;display:block">
-    <div class="item-overlay"><div class="item-title">Médiation Numérique</div><div class="item-sub">BD · 2025</div><span class="item-tag">BD</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="bd" onclick="openLB('Médiation Numérique','Planche BD sur la médiation numérique en bibliothèque. Tons bleus et violets.','BD · 2025','','images/mediation.jpg')">
+      <div class="gallery-item-inner"><img src="images/mediation.jpg" alt="Médiation Numérique" style="width:100%;height:auto;display:block">
+      <div class="item-overlay"><div class="item-title">Médiation Numérique</div><div class="item-sub">BD · 2025</div><span class="item-tag">BD</span></div></div>
+    </div>
 
-  <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Marque-page','Astronaute parmi les étoiles et les livres. Illustration pour marque-page.','Illustration · 2025','','images/marque_page.jpg')">
-    <div class="gallery-item-inner"><img src="images/marque_page.jpg" style="width:100%;height:auto;display:block">
-    <div class="item-overlay"><div class="item-title">Marque-page</div><div class="item-sub">Illustration · 2025</div><span class="item-tag">Digital</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Marque-page','Astronaute parmi les étoiles et les livres. Illustration pour marque-page.','Illustration · 2025','','images/marque_page.jpg')">
+      <div class="gallery-item-inner"><img src="images/marque_page.jpg" alt="Marque-page" style="width:100%;height:auto;display:block">
+      <div class="item-overlay"><div class="item-title">Marque-page</div><div class="item-sub">Illustration · 2025</div><span class="item-tag">Digital</span></div></div>
+    </div>
 
-  <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Bourdon','Deux bourdons symétriques aux outils d\'artiste. Illustration vectorielle.','Illustration · 2025','','images/bourdon.png')">
-    <div class="gallery-item-inner"><img src="images/bourdon.png" style="width:100%;height:auto;display:block;background:#111">
-    <div class="item-overlay"><div class="item-title">Bourdon</div><div class="item-sub">Illustration · 2025</div><span class="item-tag">Digital</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Bourdon','Deux bourdons symétriques aux outils d\'artiste. Illustration vectorielle.','Illustration · 2025','','images/bourdon.png')">
+      <div class="gallery-item-inner"><img src="images/bourdon.png" alt="Bourdon" style="width:100%;height:auto;display:block;background:#111">
+      <div class="item-overlay"><div class="item-title">Bourdon</div><div class="item-sub">Illustration · 2025</div><span class="item-tag">Digital</span></div></div>
+    </div>
 
-  <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Hellevator','Scène d\'intérieur surréaliste. Illustration digitale.','Digital · 2025','','images/hellevator.jpg')">
-    <div class="gallery-item-inner"><img src="images/hellevator.jpg" style="width:100%;height:auto;display:block">
-    <div class="item-overlay"><div class="item-title">Hellevator</div><div class="item-sub">Digital · 2025</div><span class="item-tag">Digital</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Hellevator','Scène d\'intérieur surréaliste. Illustration digitale.','Digital · 2025','','images/hellevator.jpg')">
+      <div class="gallery-item-inner"><img src="images/hellevator.jpg" alt="Hellevator" style="width:100%;height:auto;display:block">
+      <div class="item-overlay"><div class="item-title">Hellevator</div><div class="item-sub">Digital · 2025</div><span class="item-tag">Digital</span></div></div>
+    </div>
 
-  <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Lee Know','Portrait digital. Étude de lumière et de matière.','Digital · 2025','','images/lee_know.jpg')">
-    <div class="gallery-item-inner"><img src="images/lee_know.jpg" style="width:100%;height:auto;display:block">
-    <div class="item-overlay"><div class="item-title">Lee Know</div><div class="item-sub">Digital · 2025</div><span class="item-tag">Digital</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Lee Know','Portrait digital. Étude de lumière et de matière.','Digital · 2025','','images/lee_know.jpg')">
+      <div class="gallery-item-inner"><img src="images/lee_know.jpg" alt="Lee Know" style="width:100%;height:auto;display:block">
+      <div class="item-overlay"><div class="item-title">Lee Know</div><div class="item-sub">Digital · 2025</div><span class="item-tag">Digital</span></div></div>
+    </div>
 
-  <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Streetlight','Figure solitaire sous la lumière d\'un couloir. Illustration digitale.','Digital · 2025','','images/streetlight.jpg')">
-    <div class="gallery-item-inner"><img src="images/streetlight.jpg" style="width:100%;height:auto;display:block">
-    <div class="item-overlay"><div class="item-title">Streetlight</div><div class="item-sub">Digital · 2025</div><span class="item-tag">Digital</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Streetlight','Figure solitaire sous la lumière d\'un couloir. Illustration digitale.','Digital · 2025','','images/streetlight.jpg')">
+      <div class="gallery-item-inner"><img src="images/streetlight.jpg" alt="Streetlight" style="width:100%;height:auto;display:block">
+      <div class="item-overlay"><div class="item-title">Streetlight</div><div class="item-sub">Digital · 2025</div><span class="item-tag">Digital</span></div></div>
+    </div>
 
-  <div class="gallery-item reveal" data-tags="peinture" onclick="openLB('Enfant errant','Renard roux dans une forêt mystérieuse. Acrylique sur toile.','Peinture · 2025','','images/renard.jpg')">
-    <div class="gallery-item-inner"><img src="images/renard.jpg" style="width:100%;height:auto;display:block">
-    <div class="item-overlay"><div class="item-title">Enfant errant</div><div class="item-sub">Acrylique · 2025</div><span class="item-tag">Peinture</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="peinture" onclick="openLB('Enfant errant','Renard roux dans une forêt mystérieuse. Acrylique sur toile.','Peinture · 2025','','images/renard.jpg')">
+      <div class="gallery-item-inner"><img src="images/renard.jpg" alt="Enfant errant" style="width:100%;height:auto;display:block">
+      <div class="item-overlay"><div class="item-title">Enfant errant</div><div class="item-sub">Acrylique · 2025</div><span class="item-tag">Peinture</span></div></div>
+    </div>
 
-  <div class="gallery-item reveal" data-tags="crayon" onclick="openLB('Oiseau blessé','Oiseau en décomposition, crayon blanc sur papier noir. Tension entre vie et mort.','Crayon · 2025','','images/oiseau.jpg')">
-    <div class="gallery-item-inner"><img src="images/oiseau.jpg" style="width:100%;height:auto;display:block">
-    <div class="item-overlay"><div class="item-title">Oiseau blessé</div><div class="item-sub">Crayon · 2025</div><span class="item-tag">Crayon</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="crayon" onclick="openLB('Oiseau blessé','Oiseau en décomposition, crayon blanc sur papier noir. Tension entre vie et mort.','Crayon · 2025','','images/oiseau.jpg')">
+      <div class="gallery-item-inner"><img src="images/oiseau.jpg" alt="Oiseau blessé" style="width:100%;height:auto;display:block">
+      <div class="item-overlay"><div class="item-title">Oiseau blessé</div><div class="item-sub">Crayon · 2025</div><span class="item-tag">Crayon</span></div></div>
+    </div>
 
-  <div class="gallery-item reveal" data-tags="crayon" onclick="openLB('Lièvre','Étude anatomique au crayon blanc sur papier noir.','Crayon · 2025','','images/lievre.jpg')">
-    <div class="gallery-item-inner"><img src="images/lievre.jpg" style="width:100%;height:auto;display:block">
-    <div class="item-overlay"><div class="item-title">Lièvre</div><div class="item-sub">Crayon · 2025</div><span class="item-tag">Crayon</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="crayon" onclick="openLB('Lièvre','Étude anatomique au crayon blanc sur papier noir.','Crayon · 2025','','images/lievre.jpg')">
+      <div class="gallery-item-inner"><img src="images/lievre.jpg" alt="Lièvre" style="width:100%;height:auto;display:block">
+      <div class="item-overlay"><div class="item-title">Lièvre</div><div class="item-sub">Crayon · 2025</div><span class="item-tag">Crayon</span></div></div>
+    </div>
 
-  <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Joker','Affiche du film Joker revisitée. Style graphique et minimaliste.','Digital · 2025','','images/joker.jpg')">
-    <div class="gallery-item-inner"><img src="images/joker.jpg" style="width:100%;height:auto;display:block">
-    <div class="item-overlay"><div class="item-title">Joker</div><div class="item-sub">Digital · 2025</div><span class="item-tag">Digital</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="digital" onclick="openLB('Joker','Affiche du film Joker revisitée. Style graphique et minimaliste.','Digital · 2025','','images/joker.jpg')">
+      <div class="gallery-item-inner"><img src="images/joker.jpg" alt="Joker" style="width:100%;height:auto;display:block">
+      <div class="item-overlay"><div class="item-title">Joker</div><div class="item-sub">Digital · 2025</div><span class="item-tag">Digital</span></div></div>
+    </div>
 
-  <div class="gallery-item reveal" data-tags="digital" onclick="openLB('La Haine','Affiche revisitée du film La Haine. Illustration digitale.','Digital · 2025','','images/la_haine.jpg')">
-    <div class="gallery-item-inner"><img src="images/la_haine.jpg" style="width:100%;height:auto;display:block">
-    <div class="item-overlay"><div class="item-title">La Haine</div><div class="item-sub">Digital · 2025</div><span class="item-tag">Digital</span></div></div>
-  </div>
+    <div class="gallery-item reveal" data-tags="digital" onclick="openLB('La Haine','Affiche revisitée du film La Haine. Illustration digitale.','Digital · 2025','','images/la_haine.jpg')">
+      <div class="gallery-item-inner"><img src="images/la_haine.jpg" alt="La Haine" style="width:100%;height:auto;display:block">
+      <div class="item-overlay"><div class="item-title">La Haine</div><div class="item-sub">Digital · 2025</div><span class="item-tag">Digital</span></div></div>
+    </div>
 
-</div>
+  </div>
 </section>
 
 <!-- VIDÉO -->
@@ -567,7 +474,7 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
     <div><span class="cat-eyebrow">03 — Vidéo</span><h2 class="cat-title">Vidéo<span class="cat-title-accent">.</span></h2></div>
     <div class="cat-meta">
       <p class="cat-desc">Format court, ancré dans le réel. Interview, fiction, terrain. La caméra comme outil d'écoute.</p>
-      <div class="cat-stats"><div class="stat"><span class="stat-val">6+</span><span class="stat-lab">Films</span></div><div class="stat"><span class="stat-val">▶</span><span class="stat-lab">Court format</span></div></div>
+      <div class="cat-stats"><div class="stat"><span class="stat-val">5</span><span class="stat-lab">Films</span></div><div class="stat"><span class="stat-val">▶</span><span class="stat-lab">Court format</span></div></div>
     </div>
   </div>
   <div class="filters" id="video-filters">
@@ -575,9 +482,10 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
     <button class="filter-btn" data-filter="interview">Interview</button>
     <button class="filter-btn" data-filter="fiction">Fiction</button>
     <button class="filter-btn" data-filter="documentaire">Documentaire</button>
-    <button class="filter-btn" data-filter="experimental">Expérimental</button>
+    <button class="filter-btn" data-filter="evenement">Événement</button>
   </div>
   <div class="video-grid" id="video-gallery">
+
     <div class="video-card reveal" data-tags="interview" onclick="openVid('-bCz2r4QFaA','Exposition Essentielle','Prise de vue, montage, interview','Interview · 2025','Rencontre avec des artistes lors de l\'exposition. Voix directe, lumière naturelle. Réalisation complète.')">
       <div class="video-thumb" style="background:var(--vi-ink)">
         <img src="https://img.youtube.com/vi/-bCz2r4QFaA/mqdefault.jpg" alt="Exposition Essentielle" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5">
@@ -586,7 +494,7 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
       <div class="video-info"><div class="video-eyebrow">Interview · Exposition · 2025</div><div class="video-title">Exposition Essentielle</div><div class="video-desc">Prise de vue, montage, interview. Rencontre avec des artistes et leur rapport à l'essentiel.</div></div>
     </div>
 
-    <div class="video-card reveal" data-tags="fiction" onclick="openVid('SQxoEd5LB18','Enfant errant','Réalisation complète','Fiction · 2025','Errance urbaine, solitude choisie. Plans séquences, silence volontaire. Prise de vue et montage.')">
+    <div class="video-card reveal" data-tags="fiction" onclick="openVid('SQxoEd5LB18','Enfant errant','Prise de vue, montage','Fiction · Stop Motion · 2024','Errance urbaine, solitude choisie. Plans séquences, silence volontaire. Prise de vue et montage.')">
       <div class="video-thumb" style="background:var(--vi-ink)">
         <img src="https://img.youtube.com/vi/SQxoEd5LB18/mqdefault.jpg" alt="Enfant errant" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5">
         <span class="video-type">Fiction</span><div class="play-ring"><div class="play-icon">▶</div></div>
@@ -594,29 +502,30 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
       <div class="video-info"><div class="video-eyebrow">Fiction · Stop Motion · 2024</div><div class="video-title">Enfant errant</div><div class="video-desc">Prise de vue, montage. Errance urbaine, solitude choisie. Plans séquences, silence volontaire.</div></div>
     </div>
 
-    <div class="video-card reveal" data-tags="documentaire" onclick="openVid('Rt_7Ao8W0fk','Interview','Réalisation complète','Documentaire · 2025','Dans les coulisses de la réalisation de la Fresque d'un bâtiment de Paul Valery . Prise de vue et montage.')">
+    <div class="video-card reveal" data-tags="documentaire" onclick="openVid('Rt_7Ao8W0fk','Interview Fresque','Prise de vue, montage','Documentaire · 2025','Dans les coulisses de la réalisation de la Fresque d\'un bâtiment de Paul Valéry. Prise de vue et montage.')">
       <div class="video-thumb" style="background:var(--vi-ink)">
         <img src="https://img.youtube.com/vi/Rt_7Ao8W0fk/mqdefault.jpg" alt="Fresque" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5">
         <span class="video-type">Documentaire</span><div class="play-ring"><div class="play-icon">▶</div></div>
       </div>
-      <div class="video-info"><div class="video-eyebrow">Documentaire · 2025 </div><div class="video-title">Interview</div><div class="video-desc">Prise de vue, montage. Dans les coulisses de la réalisation de la Fresque d'un bâtiment de Paul Valery.</div></div>
+      <div class="video-info"><div class="video-eyebrow">Documentaire · 2025</div><div class="video-title">Interview Fresque</div><div class="video-desc">Prise de vue, montage. Dans les coulisses de la réalisation de la Fresque d'un bâtiment de Paul Valéry.</div></div>
     </div>
 
-    <div class="video-card reveal" data-tags="experimental" onclick="openVid('i_FuYMsz96g','Le Vide','Réalisation complète','Expérimental · 2025','Exploration du vide comme matière. Silence, durée, immobilité choisie. Prise de vue et montage.')">
+    <div class="video-card reveal" data-tags="evenement" onclick="openVid('i_FuYMsz96g','Atrium','Prise de vue, montage','Événement culturel · 2024-2025','Résumé des différents évènements littéraires ayant eu lieu dans l\'Atrium. Prise de vue et montage.')">
       <div class="video-thumb" style="background:var(--vi-ink)">
-        <img src="https://img.youtube.com/vi/i_FuYMsz96g/mqdefault.jpg" alt="Le Vide" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5">
-        <span class="video-type">Evènement culturel 2024-2025 </span><div class="play-ring"><div class="play-icon">▶</div></div>
+        <img src="https://img.youtube.com/vi/i_FuYMsz96g/mqdefault.jpg" alt="Atrium" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5">
+        <span class="video-type">Événement</span><div class="play-ring"><div class="play-icon">▶</div></div>
       </div>
-      <div class="video-info"><div class="video-eyebrow">Evènement culturel 2024-2025 · 2025</div><div class="video-title">Atrium</div><div class="video-desc">Prise de vue, montage. Résumé des différents évènements littéraires ayant eu lieu dans l'Atrium.</div></div>
+      <div class="video-info"><div class="video-eyebrow">Événement culturel · 2024-2025</div><div class="video-title">Atrium</div><div class="video-desc">Prise de vue, montage. Résumé des différents évènements littéraires ayant eu lieu dans l'Atrium.</div></div>
     </div>
 
-    <div class="video-card reveal" data-tags="interview,documentaire" onclick="openVid('d_Rd8Qi1ErM','Blast','Réalisation complète','Interview · Portrait · 2025','Portrait d'artistes en lien avec l'exposition Blast X Atrium. Prise de vue, montage, interview.')">
+    <div class="video-card reveal" data-tags="interview,documentaire" onclick="openVid('d_Rd8Qi1ErM','Blast X Atrium','Prise de vue, montage, interview','Interview · Portrait · 2025','Portrait d\'artistes en lien avec l\'exposition Blast X Atrium. Prise de vue, montage, interview.')">
       <div class="video-thumb" style="background:var(--vi-ink)">
         <img src="https://img.youtube.com/vi/d_Rd8Qi1ErM/mqdefault.jpg" alt="Blast" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5">
         <span class="video-type">Portrait</span><div class="play-ring"><div class="play-icon">▶</div></div>
       </div>
-      <div class="video-info"><div class="video-eyebrow">Interview · Portrait · 2025</div><div class="video-title">Blast</div><div class="video-desc">Prise de vue, montage, interview. Portrait d'artistes en lien avec l'exposition Blast X Atrium.</div></div>
+      <div class="video-info"><div class="video-eyebrow">Interview · Portrait · 2025</div><div class="video-title">Blast X Atrium</div><div class="video-desc">Prise de vue, montage, interview. Portrait d'artistes en lien avec l'exposition Blast X Atrium.</div></div>
     </div>
+
   </div>
 </section>
 
@@ -660,7 +569,6 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
       <div><div class="ci-label">Réseaux</div><div style="display:flex;flex-direction:column;gap:6px;margin-top:8px"><a class="ci-link" href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a><a class="ci-link" href="https://itch.io" target="_blank" rel="noopener noreferrer">Itch.io</a></div></div>
     </div>
     <div class="contact-right">
-      <!-- Remplace TON_ID_FORMSPREE par ton ID Formspree -->
       <form id="contact-form" action="https://formspree.io/f/TON_ID_FORMSPREE" method="POST" novalidate>
         <input type="hidden" name="_subject" value="Portfolio — Nouveau message">
         <input type="hidden" name="_language" value="fr">
@@ -699,7 +607,7 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
     <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden">
       <iframe id="yt-frame" src="" allow="autoplay;encrypted-media" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe>
     </div>
-    <div style="margin-top:1.25rem;display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="margin-top:1.25rem;display:flex;justify-content:space-between;align-items:flex-end;gap:1rem">
       <div>
         <div id="vl-eyebrow" style="font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#fff;opacity:.45;margin-bottom:4px"></div>
         <h3 id="vl-title" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:#fff"></h3>
@@ -714,7 +622,7 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
 <div id="lightbox" role="dialog" aria-modal="true" aria-label="Détail du projet" aria-hidden="true">
   <div class="lb-content">
     <button class="lb-close" onclick="closeLB()" aria-label="Fermer">[ Fermer × ]</button>
-    <div class="lb-img" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+    <div class="lb-img" aria-hidden="true"></div>
     <div class="lb-meta"><h3 class="lb-title" id="lb-title"></h3><div><p class="lb-sub" id="lb-sub"></p><span class="lb-tag" id="lb-tag"></span></div></div>
     <p id="lb-desc"></p>
   </div>
@@ -726,7 +634,7 @@ select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://
   <div class="footer-links">
     <a class="footer-link" href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
     <a class="footer-link" href="https://itch.io" target="_blank" rel="noopener noreferrer">Itch.io</a>
-    <a class="footer-link" href="mailto:vous@email.com">Email</a>
+    <a class="footer-link" href="mailto:oceane.castilla@ehotmail.fr">Email</a>
   </div>
   <div class="footer-copy" id="footer-copy"></div>
 </footer>
@@ -785,14 +693,11 @@ function hideAll() {
 
 function _transition(cb) {
   const t = document.getElementById('page-transition');
-  // Phase 1 : volet descend
   t.classList.remove('out');
   requestAnimationFrame(() => {
     t.classList.add('in');
-    // Phase 2 : après l'animation, on change de page
     setTimeout(() => {
       cb();
-      // Phase 3 : volet remonte
       requestAnimationFrame(() => {
         t.classList.remove('in');
         t.classList.add('out');
@@ -845,6 +750,7 @@ function _renderCat(cat) {
   }
   window.scrollTo({top:0, behavior:'instant'});
   revealAll(100);
+  setTimeout(masonry, 300);
 }
 
 function _renderContact() {
@@ -854,7 +760,6 @@ function _renderContact() {
   revealAll(100);
 }
 
-// Routing au chargement et au retour arrière
 function route() {
   const hash = window.location.hash.replace('#', '');
   if (!hash) { _renderHome(); return; }
@@ -864,9 +769,8 @@ function route() {
 }
 
 window.addEventListener('popstate', route);
-route(); // init au chargement
+route();
 
-// Keyboard navigation pour home-cards
 document.querySelectorAll('.home-card').forEach(card => {
   card.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') card.click() });
 });
@@ -889,6 +793,7 @@ function filterGallery(cat, filter) {
     const tags = (item.dataset.tags||'').split(',');
     item.classList.toggle('hidden', filter!=='all' && !tags.includes(filter));
   });
+  setTimeout(masonry, 100);
 }
 
 /* ════ LIGHTBOX VIDÉO YOUTUBE ════ */
@@ -925,7 +830,7 @@ function openLB(title, desc, tag, extra, imgSrc) {
   document.getElementById('lb-sub').textContent   = extra || '';
   const lbImg = document.querySelector('.lb-img');
   lbImg.innerHTML = imgSrc
-    ? '<img src="' + imgSrc + '" style="width:100%;height:100%;object-fit:contain">'
+    ? '<img src="' + imgSrc + '" alt="' + title + '">'
     : '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>';
   lb.classList.add('open');
   lb.setAttribute('aria-hidden','false');
@@ -985,6 +890,30 @@ function revealAll(delay = 80) {
     document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObs.observe(el));
   }, delay);
 }
+
+/* ════ MASONRY ════ */
+function masonry() {
+  document.querySelectorAll('.gallery').forEach(g => {
+    if (g.offsetParent === null) return;
+    g.querySelectorAll('.gallery-item:not(.hidden)').forEach(item => {
+      const inner = item.querySelector('.gallery-item-inner');
+      if (!inner) return;
+      const h = inner.offsetHeight;
+      if (h < 10) return;
+      item.style.gridRowEnd = 'span ' + Math.ceil((h + 8) / 16);
+    });
+  });
+}
+
+window.addEventListener('load', masonry);
+window.addEventListener('resize', () => {
+  clearTimeout(window._mt);
+  window._mt = setTimeout(masonry, 120);
+});
+document.querySelectorAll('.gallery img').forEach(img => {
+  img.addEventListener('load', masonry);
+  if (img.complete) setTimeout(masonry, 50);
+});
 
 /* ════ FOOTER ════ */
 document.getElementById('footer-copy').textContent = 'Montpellier · ' + new Date().getFullYear();
