@@ -191,8 +191,9 @@ body.mag-hover #cur-ring{opacity:0.9}
   padding:2rem 2.5rem;
   display:grid;
   grid-template-columns:repeat(3,1fr);
+  grid-auto-rows:8px;
+  grid-auto-flow:row dense;
   gap:8px;
-  align-items:start;
 }
 @media(max-width:768px){
   .gallery{grid-template-columns:repeat(2,1fr)}
